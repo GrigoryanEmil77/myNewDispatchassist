@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { getTruckStop } from '@/_actions/truckStopAction';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import './truckStop.css'
+import './truckstop.css'
 
 const TruckStopData = () => {
     const [truckstop,setTruckStop] = useState([])
