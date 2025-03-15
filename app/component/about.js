@@ -29,19 +29,29 @@ const AboutData = () => {
     const fetchTruckTypes = async () => {
       try {
         const response = await getPosts();
+        
         if (response.errMsg) {
           setErrMsg(response.errMsg);
         } else {
           setAbouts(response.data);
+  
+          const aboutData = response.data[0];
+          if (aboutData) {
+            setNumber({
+              carriersnumber: aboutData.carriersnumber || 0,
+              brokersnumber: aboutData.brokersnumber || 0,
+              loadsnumber: aboutData.loadsnumber || 0,
+            });
+          }
         }
       } catch (error) {
         console.error("Error fetching truck types:", error);
-       
       }
     };
-
+  
     fetchTruckTypes();
   }, []);
+  
 
   const animateCounter = (element, target) => {
     let count = 0;

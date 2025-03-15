@@ -237,3 +237,15 @@
   overflow: hidden;
 
 }
+body {
+  max-width: 100%;
+  box-sizing: border-box;
+  outline: none;
+  display: block;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+}
+

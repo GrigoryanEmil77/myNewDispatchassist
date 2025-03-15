@@ -1,4 +1,3 @@
-import { getPosts } from "@/_actions/postAction";
 import "./page.css"
 import AboutData from "./component/about";
 import Faq from "./component/faqs";
@@ -12,10 +11,6 @@ import HomeData from "./component/home";
 import CustomerData from "./component/customer";
 
 export default async function Home() {
-  // const { data, errMsg } = await getPosts();
-
-  // if(errMsg) 
-  //   return <h1>{errMsg}</h1>
 
   return (
     <div className="next">

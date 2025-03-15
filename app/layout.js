@@ -3,9 +3,15 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
+
 export const metadata = {
   title:"Empower Your Logistic Business with Dispatch Assist",
   description: "Dispatch Assist is a platform for truck drivers and companies! With our 24/7 service, we are clearly committed to supporting owner-operators and businesses of all sizes. We focus on finding the best freight and possible high rates which will maximize earnings, especially in such a challenging industry. Plus, by taking care of paperwork and broker communications, we allow clients to focus on growing their business. Our emphasis on building long-term partnerships shows our true care about the success of our clients.",
+icons:{
+  icon:['/favicon.ico?v=4'],
+  apple:['/apple-touch-icon.png?v=4'],
+  shortcut:['/apple-touch-icon.png']
+}
 };
 
 
