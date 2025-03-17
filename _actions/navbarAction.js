@@ -9,8 +9,7 @@ export async function getNavbarData() {
     await connectDB(); 
 
 
-    const rawData = await NavbarModel.find();
-    
+    const rawData = await NavbarModel.find(); 
 
     const data = JSON.parse(JSON.stringify(rawData));
     return { data };

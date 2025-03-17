@@ -9,7 +9,7 @@ export async function getPosts() {
     await connectDB(); 
 
    
-    const rawData = await AboutModel.find();
+    const rawData = await AboutModel.find(); 
     
 
     const data = JSON.parse(JSON.stringify(rawData));

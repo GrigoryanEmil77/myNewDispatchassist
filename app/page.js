@@ -16,7 +16,7 @@ export default async function Home() {
     <div className="next">
 
         <NavbarComponent/>
-        <HomeData/>
+         <HomeData/>
         <AboutData/>
      <ServicesData/>
       <TruckType/>
@@ -24,7 +24,7 @@ export default async function Home() {
       <CustomerData/>
       <RequestData/>
       <TruckStopData/>
-      <FootherData/>
+      <FootherData/> 
     </div>
   );
 }

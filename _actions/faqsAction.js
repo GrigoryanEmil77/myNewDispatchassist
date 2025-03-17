@@ -14,7 +14,7 @@ export async function getQuestions() {
     const data= JSON.parse(JSON.stringify(rawData));
     return {data };
   } catch (error) {
-    console.error("❌ Error fetching data:", error.message);
+    console.error(" Error fetching data:", error.message);
     return { errMsg: error.message };
   }
 }
