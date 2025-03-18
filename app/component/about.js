@@ -10,6 +10,7 @@ import "aos/dist/aos.css";
 
 const AboutData = () => {
   const countersRef = useRef([]);
+  const hasFetched = useRef(false); // Prevent double fetching
   const [abouts, setAbouts] = useState([]);
   const [number, setNumber] = useState({
     carriersnumber: 0,
@@ -18,16 +19,15 @@ const AboutData = () => {
   });
 
   useEffect(() => {
-    AOS.init({
-      once: true,
-      duration: 1200,
-    });
+    AOS.init({ once: true, duration: 1200 });
   }, []); 
- 
 
   useEffect(() => {
     const fetchTruckTypes = async () => {
       try {
+        if (hasFetched.current) return; // Prevent multiple fetches
+        hasFetched.current = true;
+
         const response = await getPosts();
         
         if (response.errMsg) {
@@ -50,8 +50,7 @@ const AboutData = () => {
     };
   
     fetchTruckTypes();
-  }, []);
-  
+  }, []); // Empty dependency array ensures it only runs once
 
   const animateCounter = (element, target) => {
     let count = 0;
@@ -69,13 +68,9 @@ const AboutData = () => {
 
     updateCount();
   };
+
   useEffect(() => {
-    if (
-      number.carriersnumber !== 0 ||
-      number.brokersnumber !== 0 ||
-      number.loadsnumber !== 0
-    ) {
-    
+    if (number.carriersnumber || number.brokersnumber || number.loadsnumber) {
       const observerCallback = (entries, observer) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -86,26 +81,113 @@ const AboutData = () => {
           }
         });
       };
-  
-      
-      const observerOptions = {
-        root: null, 
-        threshold: 0.1, 
-      };
-  
-      const observer = new IntersectionObserver(observerCallback, observerOptions);
-  
+
+      const observer = new IntersectionObserver(observerCallback, { root: null, threshold: 0.1 });
+
       countersRef.current.forEach((counter) => {
-        if (counter) {
-          observer.observe(counter);
-        }
+        if (counter) observer.observe(counter);
       });
-  
-      return () => {
-        observer.disconnect();
-      };
+
+      return () => observer.disconnect();
     }
   }, [number]); 
+  // const countersRef = useRef([]);
+  // const [abouts, setAbouts] = useState([]);
+  // const [number, setNumber] = useState({
+  //   carriersnumber: 0,
+  //   brokersnumber: 0,
+  //   loadsnumber: 0,
+  // });
+
+  // useEffect(() => {
+  //   AOS.init({
+  //     once: true,
+  //     duration: 1200,
+  //   });
+  // }, []); 
+ 
+
+  // useEffect(() => {
+  //   const fetchTruckTypes = async () => {
+  //     try {
+  //       const response = await getPosts();
+        
+  //       if (response.errMsg) {
+  //         setErrMsg(response.errMsg);
+  //       } else {
+  //         setAbouts(response.data);
+  
+  //         const aboutData = response.data[0];
+  //         if (aboutData) {
+  //           setNumber({
+  //             carriersnumber: aboutData.carriersnumber || 0,
+  //             brokersnumber: aboutData.brokersnumber || 0,
+  //             loadsnumber: aboutData.loadsnumber || 0,
+  //           });
+  //         }
+  //       }
+  //     } catch (error) {
+  //       console.error("Error fetching truck types:", error);
+  //     }
+  //   };
+  
+  //   fetchTruckTypes();
+  // }, []);
+  
+
+  // const animateCounter = (element, target) => {
+  //   let count = 0;
+  //   const speed = target / 80;
+
+  //   const updateCount = () => {
+  //     count += speed;
+  //     if (count <= target) {
+  //       element.textContent = Math.ceil(count);
+  //       requestAnimationFrame(updateCount);
+  //     } else {
+  //       element.textContent = (target || 0) + '+';
+  //     }
+  //   };
+
+  //   updateCount();
+  // };
+  // useEffect(() => {
+  //   if (
+  //     number.carriersnumber !== 0 ||
+  //     number.brokersnumber !== 0 ||
+  //     number.loadsnumber !== 0
+  //   ) {
+    
+  //     const observerCallback = (entries, observer) => {
+  //       entries.forEach((entry) => {
+  //         if (entry.isIntersecting) {
+  //           const counter = entry.target;
+  //           const target = parseInt(counter.getAttribute("data-target"), 10);
+  //           animateCounter(counter, target); 
+  //           observer.unobserve(counter); 
+  //         }
+  //       });
+  //     };
+  
+      
+  //     const observerOptions = {
+  //       root: null, 
+  //       threshold: 0.1, 
+  //     };
+  
+  //     const observer = new IntersectionObserver(observerCallback, observerOptions);
+  
+  //     countersRef.current.forEach((counter) => {
+  //       if (counter) {
+  //         observer.observe(counter);
+  //       }
+  //     });
+  
+  //     return () => {
+  //       observer.disconnect();
+  //     };
+  //   }
+  // }, [number]); 
   
 
   const { titlefirst = "", titlesecond = "", text = "", 

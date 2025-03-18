@@ -13,6 +13,7 @@ import CustomerData from "./component/customer";
 export default async function Home() {
 
   return (
+
     <div className="next">
 
         <NavbarComponent/>
