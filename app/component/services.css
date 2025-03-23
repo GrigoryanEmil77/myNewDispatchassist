@@ -4,7 +4,7 @@
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
   
   }
-  .worktext{
+  .workik{
     display: none;
 
   }
@@ -101,11 +101,11 @@
   .text-container {
    display: none;
   }
-  .worktext{
+  .workik{
     display: block;
     margin-left: 15px;
   }
-  .worktext p{
+  .workik p{
     font-size: 14px;
   }
   .col.elements {
@@ -117,17 +117,17 @@
     }
     }
     @media (max-width: 334px) {
-      .worktext p {
+      .workik p {
         font-size: 13px; 
       }  
     }
     @media (max-width: 322px) {
-        .worktext p {
+        .workik p {
           font-size: 12px;
             }  
       }
     @media (max-width: 308px) {
-        .worktext p {
+        .workik p {
           font-size: 10px;    
         }  
       }  

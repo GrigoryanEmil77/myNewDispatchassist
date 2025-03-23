@@ -224,7 +224,7 @@ const AboutData = () => {
         element.textContent = Math.ceil(count);
         requestAnimationFrame(updateCount);
       } else {
-        element.textContent = target + "+"; // Add '+' if target is reached
+        element.textContent = target + "+"; 
       }
     };
 

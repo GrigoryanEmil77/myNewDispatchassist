@@ -20,18 +20,18 @@ const MyNavbar = () => {
   const [loading, setLoading] = useState(true);
 
 
-  // const fetchData = async (url, setter) => {
-  //   try {
-  //     setLoading(true)
-  //     const response = await axios.get(url);
-  //     setter(response.data);
-  //   } catch (error) {
-  //     console.error(`Error fetching data from ${url}:`, error);
-  //   }
-  //   finally {
-  //     setLoading(false);
-  //   }
-  // };
+  const fetchData = async (url, setter) => {
+    try {
+      setLoading(true)
+      const response = await axios.get(url);
+      setter(response.data);
+    } catch (error) {
+      console.error(`Error fetching data from ${url}:`, error);
+    }
+    finally {
+      setLoading(false);
+    }
+  };
 
   const handleOffcanvasToggle = () => {
     setOffcanvasOpen(!isOffcanvasOpen);
@@ -102,7 +102,7 @@ const MyNavbar = () => {
         console.error("Error fetching truck types:", error);
        
       }finally {
-        setLoading(false); // Set loading to false after data is fetched
+        setLoading(false); 
       }
   
     };
@@ -124,7 +124,7 @@ const MyNavbar = () => {
         console.error("Error fetching truck types:", error);
 
       }finally {
-        setLoading(false); // Set loading to false after data is fetched
+        setLoading(false); 
       }
     
     };
@@ -145,8 +145,9 @@ const MyNavbar = () => {
       } catch (error) {
         console.error("Error fetching truck types:", error);
 
-      }finally {
-        setLoading(false); // Set loading to false after data is fetched
+      }
+      finally {
+        setLoading(false); 
       }
      
     };
@@ -161,13 +162,14 @@ const MyNavbar = () => {
  
   if (loading) {
     return (
-      <div className="nonetext">
-        <p>Dispatch Assist is a platform for truck drivers and companies! With our 24/7 service, we are clearly committed to supporting owner-operators and businesses of all sizes. We focus on finding the best freight and possible high rates which will maximize earnings, especially in such a challenging industry. Plus, by taking care of paperwork and broker communications, we allow clients to focus on growing their business. Our emphasis on building long-term partnerships shows our true care about the success of our clients.
+      <div >
+        <div className='jiji'>
         Dispatch Assist is a platform for truck drivers and companies! With our 24/7 service, we are clearly committed to supporting owner-operators and businesses of all sizes. We focus on finding the best freight and possible high rates which will maximize earnings, especially in such a challenging industry. Plus, by taking care of paperwork and broker communications, we allow clients to focus on growing their business. Our emphasis on building long-term partnerships shows our true care about the success of our clients.
         Dispatch Assist is a platform for truck drivers and companies! With our 24/7 service, we are clearly committed to supporting owner-operators and businesses of all sizes. We focus on finding the best freight and possible high rates which will maximize earnings, especially in such a challenging industry. Plus, by taking care of paperwork and broker communications, we allow clients to focus on growing their business. Our emphasis on building long-term partnerships shows our true care about the success of our clients.
         Dispatch Assist is a platform for truck drivers and companies! With our 24/7 service, we are clearly committed to supporting owner-operators and businesses of all sizes. We focus on finding the best freight and possible high rates which will maximize earnings, especially in such a challenging industry. Plus, by taking care of paperwork and broker communications, we allow clients to focus on growing their business. Our emphasis on building long-term partnerships shows our true care about the success of our clients.
         Dispatch Assist is a platform for truck drivers and companies! With our 24/7 service, we are clearly committed to supporting owner-operators and businesses of all sizes. We focus on finding the best freight and possible high rates which will maximize earnings, especially in such a challenging industry. Plus, by taking care of paperwork and broker communications, we allow clients to focus on growing their business. Our emphasis on building long-term partnerships shows our true care about the success of our clients.
-        </p> 
+        Dispatch Assist is a platform for truck drivers and companies! With our 24/7 service, we are clearly committed to supporting owner-operators and businesses of all sizes. We focus on finding the best freight and possible high rates which will maximize earnings, especially in such a challenging industry. Plus, by taking care of paperwork and broker communications, we allow clients to focus on growing their business. Our emphasis on building long-term partnerships shows our true care about the success of our clients.
+        </div>
      
       </div>
     );

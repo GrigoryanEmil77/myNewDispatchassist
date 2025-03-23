@@ -15,6 +15,9 @@
     color: black;
     font-weight: 900;
   }
+  .jiji{
+    opacity: 0;
+  }
 
 
   .fixed-top {
@@ -155,7 +158,8 @@
     font-family:initial !important;
     
    }
-   
+
+  
    .col-md-6.empower p{
     font-weight: 600;
     color:white; 
