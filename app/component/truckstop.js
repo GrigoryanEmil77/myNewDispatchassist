@@ -7,10 +7,11 @@ import './truckstop.css'
 
 const TruckStopData = () => {
     const [truckstop,setTruckStop] = useState([])
-  
+ 
     useEffect(() => {
         const fetchTruckTypes = async () => {
           try {
+       
             const response = await getTruckStop();
             if (response.errMsg) {
               setErrMsg(response.errMsg);
@@ -21,12 +22,13 @@ const TruckStopData = () => {
             console.error("Error fetching truck types:", error);
    
           }
+        
         };
     
         fetchTruckTypes();
       }, []);
 
-
+  
       const {picture1="",picture2="",picture3="",picture4="",picture5="",picture6="",picture7="",picture8="",picture9="",picture10="", }=
       truckstop.length > 0 ? truckstop[0] : {};
 

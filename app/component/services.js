@@ -13,7 +13,7 @@ import './services.css'
 const ServicesData = () => {
 
     const [service,setService] = useState([])
-   
+
     useEffect(() => {
         AOS.init({
           once: true,
@@ -30,6 +30,7 @@ const ServicesData = () => {
       useEffect(() => {
         const fetchTruckTypes = async () => {
           try {
+     
             const response = await getServicesType();
             if (response.errMsg) {
               setErrMsg(response.errMsg);
@@ -40,6 +41,7 @@ const ServicesData = () => {
             console.error("Error fetching truck types:", error);
            
           }
+        
         };
     
         fetchTruckTypes();

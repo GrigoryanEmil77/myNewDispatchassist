@@ -28,6 +28,7 @@ const CustomerData = () => {
   useEffect(() => {
     const fetchTruckTypes = async () => {
       try {
+    
         const response = await getCustomer();
         if (response.errMsg) {
           setErrMsg(response.errMsg);
@@ -38,10 +39,12 @@ const CustomerData = () => {
         console.error("Error fetching truck types:", error);
        
       }
+      
     };
 
     fetchTruckTypes();
   }, []);
+  
 
 
   const {

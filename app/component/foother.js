@@ -31,6 +31,7 @@ const FootherData = () => {
   useEffect(() => {
     const fetchTruckTypes = async () => {
       try {
+  
         const response = await getServicesType();
         if (response.errMsg) {
           setErrMsg(response.errMsg);
@@ -41,6 +42,7 @@ const FootherData = () => {
         console.error("Error fetching truck types:", error);
        
       }
+   
     };
 
     fetchTruckTypes();
@@ -48,6 +50,7 @@ const FootherData = () => {
   useEffect(() => {
     const fetchTruckTypes = async () => {
       try {
+     
         const response = await getContact();
         if (response.errMsg) {
           setErrMsg(response.errMsg);
@@ -58,6 +61,7 @@ const FootherData = () => {
         console.error("Error fetching truck types:", error);
        
       }
+     
     };
 
     fetchTruckTypes();
@@ -65,6 +69,7 @@ const FootherData = () => {
   useEffect(() => {
     const fetchTruckTypes = async () => {
       try {
+     
         const response = await getTrucktype();
         if (response.errMsg) {
           setErrMsg(response.errMsg);
@@ -75,6 +80,7 @@ const FootherData = () => {
         console.error("Error fetching truck types:", error);
 
       }
+  
     };
 
     fetchTruckTypes();
@@ -82,6 +88,7 @@ const FootherData = () => {
   useEffect(() => {
     const fetchTruckTypes = async () => {
       try {
+  
         const response = await getNavbarData();
         if (response.errMsg) {
           setErrMsg(response.errMsg);
@@ -92,6 +99,7 @@ const FootherData = () => {
         console.error("Error fetching truck types:", error);
 
       }
+     
     };
 
     fetchTruckTypes();
@@ -110,6 +118,7 @@ const FootherData = () => {
         console.error("Error fetching truck types:", error);
 
       }
+   
     };
 
     fetchTruckTypes();

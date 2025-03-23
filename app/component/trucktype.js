@@ -10,6 +10,7 @@ import "aos/dist/aos.css";
 const TruckType = () => {
     const [truckTypes,SetTruckTypes] =useState([])
     const [isReadMore, setIsReadMore] = useState(true);
+
     const [aosInitialized, setAosInitialized] = useState(false); 
   
     const toggleReadMore = () => {
@@ -36,6 +37,7 @@ const TruckType = () => {
     useEffect(() => {
         const fetchTruckTypes = async () => {
           try {
+         
             const response = await getTrucktype();
             if (response.errMsg) {
               setErrMsg(response.errMsg);
@@ -46,11 +48,12 @@ const TruckType = () => {
             console.error("Error fetching truck types:", error);
    
           }
+      
         };
     
         fetchTruckTypes();
       }, []);
-    
+  
       const { titleTruck="", DryVan="",Reefer="", BoxTruck="",Flatbed="", StepDeck="",PowerOnly="",DryVantext="",
       DryVanpicture="",Reeferpicture="", BoxTruckpicture="",Flatbedpicture="", StepDeckpicture="",PowerOnlypicture="",
              Reefertext="",BoxTrucktext="",Flatbedtext="",StepDecktext="",PowerOnlytext="",}=
@@ -83,6 +86,7 @@ const TruckType = () => {
           };
         }
       }, []); 
+   
     
   return (
    

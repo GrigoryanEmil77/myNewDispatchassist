@@ -68,9 +68,9 @@
     .col-md-6.empower p{
      
       color:white; 
-   
-     
+        
     }
+
   .container.elements.shift-down span{
       font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
       color: white;
@@ -89,6 +89,8 @@
       z-index: 2;
       padding: 3%;
     } 
+
+   
   
     @media (max-width: 1200px) {
   

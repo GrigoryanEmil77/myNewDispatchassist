@@ -31,6 +31,7 @@ const RequestData = () => {
   useEffect(() => {
     const fetchTruckTypes = async () => {
       try {
+     
         const response = await getRequest();
         if (response.errMsg) {
           setErrMsg(response.errMsg);
@@ -41,6 +42,7 @@ const RequestData = () => {
         console.error("Error fetching truck types:", error);
        
       }
+
     };
 
     fetchTruckTypes();

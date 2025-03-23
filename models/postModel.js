@@ -39,6 +39,7 @@ const aboutInfoSchema = new Schema(
       required: true,
     },
   },
+
   { timestamps: true } 
 );
 

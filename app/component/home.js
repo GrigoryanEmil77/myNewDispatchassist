@@ -3,7 +3,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import './home.css'
-import axios from 'axios';
 import { getHome } from '@/_actions/homeAction';
 import { getVideo } from '@/_actions/videoAction';
 
@@ -11,12 +10,12 @@ import { getVideo } from '@/_actions/videoAction';
 const HomeData = () => {
  
 const [home,setHome] = useState([])
- 
 const [video,setVideo] = useState([])
-
   const videoRef = useRef(null); 
   const videoRefer = useRef(null);
 
+
+  
   useEffect(() => {
     const videoElement = videoRefer.current;
 
@@ -39,10 +38,7 @@ const [video,setVideo] = useState([])
       const handleLoadedMetadata = () => {
         videoElement.currentTime = 1;
       };
-
       videoElement.addEventListener("loadedmetadata", handleLoadedMetadata);
-
-   
       return () => {
         videoElement.removeEventListener("loadedmetadata", handleLoadedMetadata);
       };
@@ -68,7 +64,6 @@ const [video,setVideo] = useState([])
         }
       } catch (error) {
         console.error("Error fetching truck types:", error);
-
       }
     };
 
@@ -91,7 +86,7 @@ const [video,setVideo] = useState([])
 
     fetchTruckTypes();
   }, []);
-
+   
  const {titlesmall="",titlesmall1="",titlesmall2="",titlesmall3="",titlelarge="",text=""  } =
        home.length > 0 ? home[0] : {};
 

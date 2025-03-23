@@ -248,4 +248,8 @@ body {
   user-select: none;
 
 }
+.nonetext{
+ 
+  opacity: 0;
+} 
 

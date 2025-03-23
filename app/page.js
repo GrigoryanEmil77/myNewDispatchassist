@@ -1,3 +1,4 @@
+"use client"
 import "./page.css"
 import AboutData from "./component/about";
 import Faq from "./component/faqs";
@@ -10,22 +11,20 @@ import FootherData from "./component/foother";
 import HomeData from "./component/home";
 import CustomerData from "./component/customer";
 
-export default async function Home() {
+export default function Home() {
 
   return (
-
     <div className="next">
-
-        <NavbarComponent/>
-         <HomeData/>
-        <AboutData/>
-     <ServicesData/>
-      <TruckType/>
-      <Faq/>
-      <CustomerData/>
-      <RequestData/>
-      <TruckStopData/>
-      <FootherData/> 
+      <NavbarComponent />
+      <HomeData />
+      <AboutData />
+      <ServicesData />
+      <TruckType />
+      <Faq />
+      <CustomerData />
+      <RequestData />
+      <TruckStopData />
+      <FootherData />
     </div>
   );
 }

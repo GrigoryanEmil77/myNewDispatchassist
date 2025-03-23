@@ -20,6 +20,7 @@ const Faq = () => {
   useEffect(() => {
     const fetchTruckTypes = async () => {
       try {
+ 
         const response = await getQuestions();
         if (response.errMsg) {
           setErrMsg(response.errMsg);
@@ -30,10 +31,12 @@ const Faq = () => {
         console.error("Error fetching truck types:", error);
        
       }
+     
     };
 
     fetchTruckTypes();
   }, []);
+
 
   const { titlefirst = "",titlesecond="",  questions1="",questions2="",questions3="",questions4="",
           questions5="", answer1="",answer2="",answer3="",answer4="",answer5="", } =

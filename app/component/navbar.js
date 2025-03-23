@@ -12,20 +12,26 @@ import { getNavbarData } from '@/_actions/navbarAction';
 const MyNavbar = () => {
   const [navbars, setNavbars] = useState([]);
   const [service, setService] = useState([]);
+  
   const [truckTypes, setTruckTypes] = useState([]);
   const [isOffcanvasOpen, setOffcanvasOpen] = useState(false);
   const [isServicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const [isTruckTypesDropdownOpen, setTruckTypesDropdownOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
 
 
-  const fetchData = async (url, setter) => {
-    try {
-      const response = await axios.get(url);
-      setter(response.data);
-    } catch (error) {
-      console.error(`Error fetching data from ${url}:`, error);
-    }
-  };
+  // const fetchData = async (url, setter) => {
+  //   try {
+  //     setLoading(true)
+  //     const response = await axios.get(url);
+  //     setter(response.data);
+  //   } catch (error) {
+  //     console.error(`Error fetching data from ${url}:`, error);
+  //   }
+  //   finally {
+  //     setLoading(false);
+  //   }
+  // };
 
   const handleOffcanvasToggle = () => {
     setOffcanvasOpen(!isOffcanvasOpen);
@@ -85,6 +91,7 @@ const MyNavbar = () => {
   useEffect(() => {
     const fetchTruckTypes = async () => {
       try {
+         setLoading(true)
         const response = await getServicesType();
         if (response.errMsg) {
           setErrMsg(response.errMsg);
@@ -94,7 +101,10 @@ const MyNavbar = () => {
       } catch (error) {
         console.error("Error fetching truck types:", error);
        
+      }finally {
+        setLoading(false); // Set loading to false after data is fetched
       }
+  
     };
 
     fetchTruckTypes();
@@ -103,6 +113,7 @@ const MyNavbar = () => {
   useEffect(() => {
     const fetchTruckTypes = async () => {
       try {
+        setLoading(true)
         const response = await getTrucktype();
         if (response.errMsg) {
           setErrMsg(response.errMsg);
@@ -112,7 +123,10 @@ const MyNavbar = () => {
       } catch (error) {
         console.error("Error fetching truck types:", error);
 
+      }finally {
+        setLoading(false); // Set loading to false after data is fetched
       }
+    
     };
 
     fetchTruckTypes();
@@ -121,6 +135,7 @@ const MyNavbar = () => {
   useEffect(() => {
     const fetchTruckTypes = async () => {
       try {
+        setLoading(true)
         const response = await getNavbarData();
         if (response.errMsg) {
           setErrMsg(response.errMsg);
@@ -130,7 +145,10 @@ const MyNavbar = () => {
       } catch (error) {
         console.error("Error fetching truck types:", error);
 
+      }finally {
+        setLoading(false); // Set loading to false after data is fetched
       }
+     
     };
 
     fetchTruckTypes();
@@ -140,6 +158,20 @@ const MyNavbar = () => {
   const { LoadSearch = "", Booking = "", BrokerSetup = "", Detention = "", Invoicing = "", Factoring = "", Support = "" } = service.length > 0 ? service[0] : {};
   const { DryVan = "", Reefer = "", BoxTruck = "", Flatbed = "", StepDeck = "", PowerOnly = "" } = truckTypes.length > 0 ? truckTypes[0] : {};
 
+ 
+  if (loading) {
+    return (
+      <div className="nonetext">
+        <p>Dispatch Assist is a platform for truck drivers and companies! With our 24/7 service, we are clearly committed to supporting owner-operators and businesses of all sizes. We focus on finding the best freight and possible high rates which will maximize earnings, especially in such a challenging industry. Plus, by taking care of paperwork and broker communications, we allow clients to focus on growing their business. Our emphasis on building long-term partnerships shows our true care about the success of our clients.
+        Dispatch Assist is a platform for truck drivers and companies! With our 24/7 service, we are clearly committed to supporting owner-operators and businesses of all sizes. We focus on finding the best freight and possible high rates which will maximize earnings, especially in such a challenging industry. Plus, by taking care of paperwork and broker communications, we allow clients to focus on growing their business. Our emphasis on building long-term partnerships shows our true care about the success of our clients.
+        Dispatch Assist is a platform for truck drivers and companies! With our 24/7 service, we are clearly committed to supporting owner-operators and businesses of all sizes. We focus on finding the best freight and possible high rates which will maximize earnings, especially in such a challenging industry. Plus, by taking care of paperwork and broker communications, we allow clients to focus on growing their business. Our emphasis on building long-term partnerships shows our true care about the success of our clients.
+        Dispatch Assist is a platform for truck drivers and companies! With our 24/7 service, we are clearly committed to supporting owner-operators and businesses of all sizes. We focus on finding the best freight and possible high rates which will maximize earnings, especially in such a challenging industry. Plus, by taking care of paperwork and broker communications, we allow clients to focus on growing their business. Our emphasis on building long-term partnerships shows our true care about the success of our clients.
+        Dispatch Assist is a platform for truck drivers and companies! With our 24/7 service, we are clearly committed to supporting owner-operators and businesses of all sizes. We focus on finding the best freight and possible high rates which will maximize earnings, especially in such a challenging industry. Plus, by taking care of paperwork and broker communications, we allow clients to focus on growing their business. Our emphasis on building long-term partnerships shows our true care about the success of our clients.
+        </p> 
+     
+      </div>
+    );
+  }
   return (
     <Navbar className="navbar navbar-expand-lg fixed-top">
       <NavbarBrand href="/">
