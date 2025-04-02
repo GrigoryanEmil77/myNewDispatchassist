@@ -48,6 +48,21 @@ user-select: none;
   padding: 10px;
   text-align: center;
 }
+.flat{
+  color:white !important;
+  padding-left: 18px !important;
+  text-align: center;
+}
+
+/* .stepdeck{
+  color:white !important;
+  padding-left: 50px !important;
+  padding-right: 50px !important;
+  text-align: center;
+} */
+
+
+
 .read-more-container h2{
   color:white;
   font-size: 40px;

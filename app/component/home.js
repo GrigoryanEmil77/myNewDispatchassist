@@ -115,13 +115,14 @@ const [video,setVideo] = useState([])
         <div className="col-md-6">
           <div className="video-container">
             <video 
-              className="video-responsive" 
-              id="vid1" 
-              ref={videoRef}
-              controls
-              playsInline
-              loop
-              muted
+            className="video-responsive" 
+            id="vid1" 
+            ref={videoRef}
+            controls
+            playsInline
+            loop
+            muted
+            preload="auto"
             >
               {videodispatch && (
                 <source src={videodispatch} type="video/mp4" />

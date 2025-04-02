@@ -25,6 +25,8 @@ const TruckType = () => {
             duration: 1200,
           });
           setAosInitialized(true);
+        } else {
+          AOS.refreshHard(); 
         }
       };
   
@@ -120,7 +122,8 @@ const TruckType = () => {
                 <div className="col-md-4 mt-2 elements" id="REEFER" >
                 <img src={Reeferpicture ||null}  data-aos="fade-right" className="truck" alt='pic2'/> 
                     <h3 className="mt-4" data-aos="fade-up">{Reefer}</h3>
-                    <p>
+                    <p
+                    className='reefert'>
         {isReadMore ? `${Reefertext.slice(0, 95)}` : Reefertext} 
         <span
   className="read-more-text"
@@ -165,7 +168,7 @@ const TruckType = () => {
                 <div className="col-md-4 mt-3 elements" id="FLATBED">
                 <img src={Flatbedpicture ||null}  data-aos="fade-right" className="truck" alt='pic4'/> 
                     <h3 className="mt-4" data-aos="fade-up">{Flatbed}</h3>
-                    <p>
+                    <p className='flat'>
         {isReadMore ? `${Flatbedtext.slice(0, 100)}` : Flatbedtext} 
         <span
   className="read-more-text"
@@ -187,7 +190,7 @@ const TruckType = () => {
                 <div className="col-md-4 mt-3 elements" id="STEP DECK">
                 <img src={StepDeckpicture ||null}  data-aos="fade-right" className="truck" alt='pic5' /> 
                     <h3 className="mt-4" data-aos="fade-up">{StepDeck}</h3>
-                    <p>
+                    <p className='stepdeck'>
         {isReadMore ? `${StepDecktext.slice(0, 90)}` : StepDecktext} 
         <span
   className="read-more-text"

@@ -22,11 +22,13 @@ const RequestData = () => {
   const [isSending, setIsSending] = useState(false);
         
   useEffect(() => {
-    AOS.init({
-      once: true,
-      duration: 1200,
-    });
-  }, []); 
+    AOS.init({ once: true, duration: 1200 });
+  
+    return () => {
+      AOS.refreshHard(); 
+    };
+  }, []);
+  
 
   useEffect(() => {
     const fetchTruckTypes = async () => {
