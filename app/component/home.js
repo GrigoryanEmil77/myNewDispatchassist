@@ -5,8 +5,6 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import './home.css'
 import { getHome } from '@/_actions/homeAction';
 import { getVideo } from '@/_actions/videoAction';
-import AOS from "aos";
-import "aos/dist/aos.css";
 
 const HomeData = () => {
  
@@ -15,23 +13,7 @@ const [video,setVideo] = useState([])
   const videoRef = useRef(null); 
   const videoRefer = useRef(null);
 
-  useEffect(() => {
 
-    AOS.init({ once: true, duration: 1200 });
-
-
-    const videoElements = document.querySelectorAll('video');
-    videoElements.forEach((videoElement) => {
-      videoElement.removeAttribute('data-aos');
-    });
-
-    return () => {
-
-      AOS.refreshHard();
-    };
-  }, []);
-
-  
   useEffect(() => {
     const videoElement = videoRefer.current;
 
@@ -45,21 +27,51 @@ const [video,setVideo] = useState([])
     }
   }, []);
  
-  
+
   useEffect(() => {
     const videoElement = videoRef.current;
-
-    
+  
     if (videoElement) {
       const handleLoadedMetadata = () => {
-        videoElement.currentTime = 1;
+        videoElement.currentTime = 1; 
+        videoElement.play().catch((error) => {
+          console.error("Autoplay failed:", error);
+        });
+  
+    
+        const stopVideo = () => {
+          if (videoElement.currentTime >= 2) {
+            videoElement.pause();
+            videoElement.removeEventListener("timeupdate", stopVideo);
+          }
+        };
+  
+        videoElement.addEventListener("timeupdate", stopVideo);
       };
+  
       videoElement.addEventListener("loadedmetadata", handleLoadedMetadata);
+  
       return () => {
         videoElement.removeEventListener("loadedmetadata", handleLoadedMetadata);
       };
     }
-  }, []); 
+  }, []);
+  
+  
+  // useEffect(() => {
+  //   const videoElement = videoRef.current;
+
+    
+  //   if (videoElement) {
+  //     const handleLoadedMetadata = () => {
+  //       videoElement.currentTime = 1;
+  //     };
+  //     videoElement.addEventListener("loadedmetadata", handleLoadedMetadata);
+  //     return () => {
+  //       videoElement.removeEventListener("loadedmetadata", handleLoadedMetadata);
+  //     };
+  //   }
+  // }, []); 
   useEffect(() => {
     const video = document.getElementById("myVideo");
     if (video) {
@@ -137,7 +149,12 @@ const [video,setVideo] = useState([])
             controls
             playsInline
             loop
-     
+            defaultMuted
+            autoPlay
+            muted
+ 
+   
+           
             >
               {videodispatch && (
                 <source src={videodispatch} type="video/mp4" />
