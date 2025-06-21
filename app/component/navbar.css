@@ -19,6 +19,9 @@
   .jiji{
     opacity: 0;
   }
+.nav-item.custom-spacing {
+  min-height: 40px;
+}
 
 
   .fixed-top {

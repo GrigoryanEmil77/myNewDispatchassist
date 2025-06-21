@@ -98,7 +98,7 @@ const TruckType = () => {
             <h2 className="text trucks"  data-aos="flip-up" >{titleTruck}</h2>
             <div className="row mt-5 elements" >
                 <div className="col-md-4 mt-2 elements" id="DRY VAN">
-                <img src={DryVanpicture ||null}  data-aos="fade-right" className="truck" alt='pic1'/> 
+                <img src={DryVanpicture ||null}  data-aos="fade-right" width="200" height="100" className="truck" alt='pic1'/> 
                     <h3 className="mt-4" data-aos="fade-up">{DryVan}</h3>
                          <p>
         {isReadMore ? `${DryVantext.slice(0, 100)}` : DryVantext} 
@@ -120,7 +120,7 @@ const TruckType = () => {
                         <button type="button" data-aos="fade-up" className="read-more-btn">Read More</button>
                 </div>
                 <div className="col-md-4 mt-2 elements" id="REEFER" >
-                <img src={Reeferpicture ||null}  data-aos="fade-right" className="truck" alt='pic2'/> 
+                <img src={Reeferpicture ||null}  data-aos="fade-right" width="200" height="100" className="truck" alt='pic2'/> 
                     <h3 className="mt-4" data-aos="fade-up">{Reefer}</h3>
                     <p
                     className='reefert'>
@@ -143,7 +143,7 @@ const TruckType = () => {
                         <button type="button" data-aos="fade-up" className="read-more-btn">Read More</button>
                 </div>
                 <div className="col-md-4 mt-2 elements" id="BOX TRUCK">
-                <img src={BoxTruckpicture ||null}  data-aos="fade-right" className="truck" alt='pic3'/> 
+                <img src={BoxTruckpicture ||null}  data-aos="fade-right" width="200" height="100" className="truck" alt='pic3'/> 
                     <h3 className="mt-4" data-aos="fade-up">{BoxTruck}</h3>
              
                     <p>
@@ -163,10 +163,10 @@ const TruckType = () => {
 </span>
 
       </p>
-                          <button type="button" data-aos="fade-up" className="read-more-btn">Read More</button>
+                          <button type="button" data-aos="fade-up"  className="read-more-btn">Read More</button>
                 </div>
                 <div className="col-md-4 mt-3 elements" id="FLATBED">
-                <img src={Flatbedpicture ||null}  data-aos="fade-right" className="truck" alt='pic4'/> 
+                <img src={Flatbedpicture ||null}  data-aos="fade-right" width="200" height="100" className="truck" alt='pic4'/> 
                     <h3 className="mt-4" data-aos="fade-up">{Flatbed}</h3>
                     <p className='flat'>
         {isReadMore ? `${Flatbedtext.slice(0, 100)}` : Flatbedtext} 
@@ -188,7 +188,7 @@ const TruckType = () => {
                     <button type="button" data-aos="fade-up" className="read-more-btn">Read More</button>
                 </div>
                 <div className="col-md-4 mt-3 elements" id="STEP DECK">
-                <img src={StepDeckpicture ||null}  data-aos="fade-right" className="truck" alt='pic5' /> 
+                <img src={StepDeckpicture ||null}  data-aos="fade-right" width="200" height="100" className="truck" alt='pic5' /> 
                     <h3 className="mt-4" data-aos="fade-up">{StepDeck}</h3>
                     <p className='stepdeck'>
         {isReadMore ? `${StepDecktext.slice(0, 90)}` : StepDecktext} 
@@ -209,7 +209,7 @@ const TruckType = () => {
                 <button type="button" data-aos="fade-up" className="read-more-btn">Read More</button>
                 </div>
                 <div className="col-md-4 mt-3 elements" id="POWER ONLY">
-                <img src={PowerOnlypicture ||null}  data-aos="fade-right" className="truck"  alt='pic6'/> 
+                <img src={PowerOnlypicture ||null}  data-aos="fade-right" width="200" height="100" className="truck"  alt='pic6'/> 
                     <h3 className="mt-4" data-aos="fade-up">{PowerOnly}</h3>
                     <p>
         {isReadMore ? `${PowerOnlytext.slice(0, 98)}` : PowerOnlytext} 

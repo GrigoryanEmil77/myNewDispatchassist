@@ -164,17 +164,19 @@ const MyNavbar = () => {
   return (
     <Navbar className="navbar navbar-expand-lg fixed-top">
       <NavbarBrand href="/">
-      <img
-            src={picture||null}
+      {picture && (
+  <img 
+    src={picture} 
             id="logo"
             alt=''
             className="navbar-brand"
+            width="105" height="auto"
             style={{
               WebkitUserDrag: "none",
               userDrag: "none",
               userSelect: "none",
             }}
-          />
+          />)}
       </NavbarBrand>
       <NavbarToggler className="navbar-toggler" onClick={handleOffcanvasToggle} />
       <div className={`offcanvas offcanvas-end ${isOffcanvasOpen ? 'show' : ''}`} tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">

@@ -18,7 +18,10 @@
       margin-left: 10px;
     
     }
-    
+    .text-center.mb-4 {
+  min-height: 150px; 
+}
+
     .style_moving_infos__r7GS7{
     display: flex;
     padding-top: 2rem;

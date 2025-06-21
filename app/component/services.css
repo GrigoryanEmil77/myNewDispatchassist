@@ -18,8 +18,8 @@
     font-weight: 600;
   }
   .provide {
-    max-width: 147px;
-    max-height: 147px;
+    width: 147px;
+    height: 147px;
     border-radius: 50%;
     padding: 8px;
     border: 3px solid #ea9d17;
@@ -29,7 +29,7 @@
     -ms-user-drag: none;
   
   }
-  
+
   .text-container {
     display: flex;
     flex-direction: column;

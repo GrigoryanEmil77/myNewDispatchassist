@@ -1,3 +1,6 @@
+.row.section.mt-1 {
+  min-height: 500px; 
+}
 
 #myVideo {
     position: absolute;
@@ -69,12 +72,14 @@
   .col-md-6.empower h2{
       font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
       color:white;
-      font-size: 45px; 
+       font-size: 45px;  
+        min-height: 60px;
   
     }
     .col-md-6.empower p{
      
       color:white; 
+        min-height: 60px;
         
     }
 
@@ -82,6 +87,7 @@
       font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
       color: white;
       font-size: 30px;
+        min-height: 60px;
   
     }
   .col-md-6.empower h2:nth-child(2){
@@ -89,6 +95,7 @@
       font-size: 60px;
       color:#ea9d17;   
       font-weight: 900;
+        min-height: 60px;
    
     }
     .shift-down {
@@ -115,19 +122,37 @@
    }
   } 
   
-  @media (max-width: 767px) {
+  @media (max-width: 906px) {
 
     .container-fluid-video {
-     padding-top: 5% !important;
+     padding-top: 8% !important;
       padding: 20px;
     }
    
   }
   
+  @media (max-width: 767px) {
+
+    .container-fluid-video {
+     padding-top: 10% !important;
+      padding: 20px;
+    }
+   
+  }
+    @media (max-width: 680px) {
+  .container-fluid-video {
+     padding-top: 10% !important;
+      padding: 20px;
+    }
+   
+  }
+  
+  
   @media (max-width: 500px) {
     .container-fluid-video {
       padding-top: 14% !important;
       padding: 20px;
+      
     
     }  
     }

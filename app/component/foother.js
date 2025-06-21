@@ -143,17 +143,19 @@ const FootherData = () => {
     <div className="container text-md-left elements">
       <div className="row mb-3 mt-5 elements">
         <div className="mt-5 elements">
-          <img
-            src={picture ||null}
+      {picture && (
+  <img 
+    src={picture} 
             alt=''
             id="brandLogo"
             className="brand-logo"
+            width="160" height="auto"
             style={{
               WebkitUserDrag: "none",
               userDrag: "none",
               userSelect: "none",
             }}
-          />
+          />)}  
         </div>
       </div>
   

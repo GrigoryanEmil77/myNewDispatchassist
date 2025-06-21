@@ -61,7 +61,18 @@ picture1="", picture2="", picture3="", picture4="",picture5="",picture6="",pictu
   <div className="row justify-content-center mt-5  elements" >
       <div className="col elements  m" id="new">
           <div className="new text-center elements" id="LOAD SEARCH FTL/LTL"  data-aos="fade-right">
-          <img src={picture1 ||null}  data-aos="fade-right" className="provide" alt='pic7'/>                       
+   {picture1 && (
+  <img 
+    src={picture1} 
+    data-aos="fade-right" 
+    className="provide" 
+    alt="pic7" 
+    width= "147px"
+    height= "147px"
+
+  />
+)}
+                     
               <div className="text-container">
                 <p className="text" >{LoadSearch}</p>
                
@@ -73,7 +84,16 @@ picture1="", picture2="", picture3="", picture4="",picture5="",picture6="",pictu
       </div>
       <div className="col elements m">
         <div className="new text-center elements" id="RATE NEGOTIATION & BOOKING" data-aos="fade-right">
-        <img src={picture2 ||null}  data-aos="fade-right" className="provide" alt='pic7'/>   
+      {picture2 && (
+  <img 
+    src={picture2} 
+    data-aos="fade-right" 
+    className="provide" 
+    alt="pic7" 
+ width= "147px"
+    height= "147px"
+  />
+)} 
               <div className="text-container" >
                 <p className="text-nowrap">
                 {Booking.split(" ||").map((part, index) => (
@@ -96,7 +116,16 @@ picture1="", picture2="", picture3="", picture4="",picture5="",picture6="",pictu
       </div>
       <div className="col elements m">
         <div className="new text-center elements" id="BROKER SETUP" data-aos="fade-right">
-        <img src={picture3 ||null}  data-aos="fade-right" className="provide" alt='pic7'/>   
+     {picture3 && (
+  <img 
+    src={picture3} 
+    data-aos="fade-right" 
+    className="provide" 
+    alt="pic7" 
+ width= "147px"
+    height= "147px"
+  />
+)} 
               <div className="text-container">
                 <p className="text">{BrokerSetup}</p>
             </div>
@@ -107,7 +136,16 @@ picture1="", picture2="", picture3="", picture4="",picture5="",picture6="",pictu
       </div>
       <div className="col elements m">
         <div className="new text-center elements" id="DETENTION LAYOVER TONU" data-aos="fade-right">
-        <img src={picture4 ||null}  data-aos="fade-right" className="provide" alt='pic7'/>   
+         {picture4 && (
+  <img 
+    src={picture4} 
+    data-aos="fade-right" 
+    className="provide" 
+    alt="pic7" 
+ width= "147px"
+    height= "147px"
+  />
+)} 
               <div className="text-container">
                 <p className="text-nowrap">
                 {Detention.split(" || ").map((part, index) => (
@@ -132,7 +170,16 @@ picture1="", picture2="", picture3="", picture4="",picture5="",picture6="",pictu
       </div>
       <div className="col elements m">
         <div className="new text-center elements"  id="INVOICING" data-aos="fade-right">
-        <img src={picture5 ||null}  data-aos="fade-right" className="provide" alt='pic7'/>   
+     {picture5 && (
+  <img 
+    src={picture5} 
+    data-aos="fade-right" 
+    className="provide" 
+    alt="pic7" 
+ width= "147px"
+    height= "147px"
+  />
+)}  
                       <div className="text-container">
                 <p className="text">{Invoicing}</p>
             </div>
@@ -143,7 +190,16 @@ picture1="", picture2="", picture3="", picture4="",picture5="",picture6="",pictu
       </div>
       <div className="col elements m" >
         <div className="new text-center elements" id="FACTORING & INSURANCE ASSISTANCE" data-aos="fade-right">
-        <img src={picture6 ||null}  data-aos="fade-right" className="provide" alt='pic7'/>   
+        {picture6 && (
+  <img 
+    src={picture6} 
+    data-aos="fade-right" 
+    className="provide" 
+    alt="pic7" 
+ width= "147px"
+    height= "147px"
+  />
+)}
               <div className="text-container">
            <p className="text-nowrap">
     {Factoring.split(" || ").map((part, index) => (
@@ -167,7 +223,16 @@ picture1="", picture2="", picture3="", picture4="",picture5="",picture6="",pictu
       </div>
       <div className="col elements m">
         <div className="new text-center elements" id="Support"  data-aos="fade-right">
-        <img src={picture7 ||null}  data-aos="fade-right" className="provide" alt='pic7'/>         
+         {picture7 && (
+  <img 
+    src={picture7} 
+    data-aos="fade-right" 
+    className="provide" 
+    alt="pic7" 
+ width= "147px"
+    height= "147px"
+  />
+)}        
               <div className="text-container">
                 <p className="text">{Support}</p>
             </div>

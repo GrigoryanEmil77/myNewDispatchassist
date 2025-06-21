@@ -58,20 +58,6 @@ const [video,setVideo] = useState([])
   }, []);
   
   
-  // useEffect(() => {
-  //   const videoElement = videoRef.current;
-
-    
-  //   if (videoElement) {
-  //     const handleLoadedMetadata = () => {
-  //       videoElement.currentTime = 1;
-  //     };
-  //     videoElement.addEventListener("loadedmetadata", handleLoadedMetadata);
-  //     return () => {
-  //       videoElement.removeEventListener("loadedmetadata", handleLoadedMetadata);
-  //     };
-  //   }
-  // }, []); 
   useEffect(() => {
     const video = document.getElementById("myVideo");
     if (video) {
@@ -130,6 +116,9 @@ const [video,setVideo] = useState([])
       muted
       loop
       playsInline
+      width="100%"
+      height="100%" 
+      loading="lazy"
     
     >
       {videobackground && (
@@ -140,6 +129,7 @@ const [video,setVideo] = useState([])
 
     <div className="container-fluid-video elements shift-down" id="Home">
       <div className="row section mt-1">
+        
         <div className="col-md-6">
           <div className="video-container">
             <video 
@@ -152,6 +142,7 @@ const [video,setVideo] = useState([])
             defaultMuted
             autoPlay
             muted
+            loading="lazy"
  
    
            
