@@ -164,17 +164,40 @@ const FootherData = () => {
           </div>
         </div>
   
-          <div className="col-12 col-md mt-5" data-aos="fade-up">
-            <h5 className="text-uppercase mb-4">{trucktypes}</h5>
-            {[DryVan, Reefer, BoxTruck, Flatbed, StepDeck, PowerOnly].map((truck, i) => (
-              <div key={i}>
-                <a href={`#${truck.toUpperCase()}`} className="text-white">
-                  {truck}
-                </a>
-              </div>
-            ))}
+  
+        <div className="col-12 col-md mt-5 element elements" data-aos="fade-up">
+          <h5 className="text-uppercase mb-4 font-weight-bold">{trucktypes}</h5>
+          <div>
+            <a href="#DRY VAN" className="text-white scroll-link">
+              {DryVan}
+            </a>
           </div>
-
+          <div>
+            <a href="#REEFER" className="text-white scroll-link">
+              {Reefer}
+            </a>
+          </div>
+          <div>
+            <a href="#BOX TRUCK" className="text-white scroll-link">
+              {BoxTruck}
+            </a>
+          </div>
+          <div>
+            <a href="#FLATBED" className="text-white scroll-link">
+              {Flatbed}
+            </a>
+          </div>
+          <div>
+            <a href="#STEP DECK" className="text-white scroll-link">
+              {StepDeck}
+            </a>
+          </div>
+          <div>
+            <a href="#POWER ONLY" className="text-white scroll-link">
+              {PowerOnly}
+            </a>
+          </div>
+        </div>
           <div className="col-12 col-md mt-5" data-aos="fade-up">
             <h5 className="text-uppercase mb-4">{titleServices}</h5>
             {[LoadSearch, Booking, BrokerSetup, Detention, Invoicing, Factoring, Support].map(

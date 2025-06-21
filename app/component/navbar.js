@@ -177,7 +177,7 @@ const MyNavbar = () => {
 
                 <a
                   className="nav-link dropdown-toggle"
-                  href="#"
+                  
                   style={{ fontWeight: "bold", fontSize: "20px" }}
                   onClick={toggleTruckTypesDropdown}
                 >

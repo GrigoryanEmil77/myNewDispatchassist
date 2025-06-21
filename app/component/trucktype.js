@@ -54,12 +54,12 @@ const TruckType = () => {
   } = truckTypes[0] || {};
 
   const trucks = [
-    { title: DryVan, text: DryVantext, img: DryVanpicture },
-    { title: Reefer, text: Reefertext, img: Reeferpicture },
-    { title: BoxTruck, text: BoxTrucktext, img: BoxTruckpicture },
-    { title: Flatbed, text: Flatbedtext, img: Flatbedpicture },
-    { title: StepDeck, text: StepDecktext, img: StepDeckpicture },
-    { title: PowerOnly, text: PowerOnlytext, img: PowerOnlypicture },
+    {title: DryVan, text: DryVantext, img: DryVanpicture,id:"DRY VAN" , },
+    { title: Reefer, text: Reefertext, img: Reeferpicture,id:"REEFER" },
+    { title: BoxTruck, text: BoxTrucktext, img: BoxTruckpicture, id:"BOX TRUCK" },
+    { title: Flatbed, text: Flatbedtext, img: Flatbedpicture, id:"FLATBED" },
+    { title: StepDeck, text: StepDecktext, img: StepDeckpicture, id:"STEP DECK" },
+    { title: PowerOnly, text: PowerOnlytext, img: PowerOnlypicture, id:"POWER ONLY" },
   ];
 
   return (
@@ -67,8 +67,8 @@ const TruckType = () => {
       <div className="read-more-container elements">
         <h2 className="text trucks" data-aos="flip-up">{titleTruck}</h2>
         <div className="row mt-5 elements">
-          {trucks.map(({ title, text, img }, index) => (
-            <div className="col-md-4 mt-3 elements" key={index}>
+          {trucks.map(({ title, text, img,id }, index) => (
+            <div className="col-md-4 mt-3 elements" id={id} key={index}>
               {img && (
                 <img
                   src={img}
@@ -107,3 +107,4 @@ const TruckType = () => {
 };
 
 export default TruckType;
+

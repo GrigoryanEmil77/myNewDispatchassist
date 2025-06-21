@@ -3,7 +3,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import './home.css';
-
 import { getHome } from '@/_actions/homeAction';
 import { getVideo } from '@/_actions/videoAction';
 
