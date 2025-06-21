@@ -10,50 +10,46 @@ import "aos/dist/aos.css";
 const AboutData = () => {
   const countersRef = useRef([]);
   const hasFetched = useRef(false); 
+
   const [abouts, setAbouts] = useState([]);
   const [number, setNumber] = useState({
-    carriersnumber:'', 
-    brokersnumber:'',
-    loadsnumber:'', 
+    carriersnumber: 0,
+    brokersnumber: 0,
+    loadsnumber: 0,
   });
+
   useEffect(() => {
     AOS.init({ once: true, duration: 1200 });
-  
-    return () => {
-      AOS.refreshHard(); 
-    };
   }, []);
-  
+
+
   useEffect(() => {
-    const fetchTruckTypes = async () => {
+    const fetchAboutData = async () => {
       try {
-        if (hasFetched.current) return; 
+        if (hasFetched.current) return;
         hasFetched.current = true;
-        
 
         const response = await getPosts();
-        
+
         if (response.errMsg) {
-          setErrMsg(response.errMsg);
+          console.error("Error:", response.errMsg);
         } else {
+          const aboutData = response.data[0] || {};
           setAbouts(response.data);
-  
-          const aboutData = response.data[0];
-          if (aboutData) {
-            setNumber({
-              carriersnumber: aboutData.carriersnumber || 0,
-              brokersnumber: aboutData.brokersnumber || 0,
-              loadsnumber: aboutData.loadsnumber || 0,
-            });
-          }
+          setNumber({
+            carriersnumber: +aboutData.carriersnumber || 0,
+            brokersnumber: +aboutData.brokersnumber || 0,
+            loadsnumber: +aboutData.loadsnumber || 0,
+          });
         }
       } catch (error) {
-        console.error("Error fetching truck types:", error);
+        console.error("Error fetching about data:", error);
       }
     };
-  
-    fetchTruckTypes();
-  }, []); 
+
+    fetchAboutData();
+  }, []);
+
 
   const animateCounter = (element, target) => {
     let count = 0;
@@ -61,103 +57,74 @@ const AboutData = () => {
 
     const updateCount = () => {
       count += speed;
-      if (count <= target) {
+      if (count < target) {
         element.textContent = Math.ceil(count);
         requestAnimationFrame(updateCount);
       } else {
-        element.textContent = target + "+"; 
+        element.textContent = `${target}+`;
       }
     };
 
     updateCount();
   };
 
+
   useEffect(() => {
-    if (number.carriersnumber || number.brokersnumber || number.loadsnumber) {
-      const observerCallback = (entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const counter = entry.target;
-            const target = parseInt(counter.getAttribute("data-target"), 10);
-            animateCounter(counter, target); 
-            observer.unobserve(counter); 
-          }
-        });
-      };
+    if (!number.carriersnumber && !number.brokersnumber && !number.loadsnumber) return;
 
-      const observer = new IntersectionObserver(observerCallback, { root: null, threshold: 0.1 });
-
-      countersRef.current.forEach((counter) => {
-        if (counter) observer.observe(counter);
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.getAttribute("data-target"), 10);
+          animateCounter(el, target);
+          obs.unobserve(el);
+        }
       });
+    }, { threshold: 0.1 });
 
-      return () => observer.disconnect();
-    }
-  }, [number]); 
+    countersRef.current.forEach(el => el && observer.observe(el));
+    return () => observer.disconnect();
+  }, [number]);
 
-  const { titlefirst = "", titlesecond = "", text = "", 
-          carrierstext = "", brokerstext = "", loadstext = "" } =
-          abouts.length > 0 ? abouts[0] : {};
+  const {
+    titlefirst = "", titlesecond = "", text = "", 
+    carrierstext = "", brokerstext = "", loadstext = ""
+  } = abouts[0] || {};
 
   return (
     <section className="container py-5" id="About Us">
       <div className="text-center mb-4">
-        <h2 className="text text-center elements" data-aos="flip-up">{titlefirst}<span> {titlesecond}</span></h2>
-      
-        <p className="lead mt-3" data-aos="fade-up" style={{ minHeight: '80px' }}>
-         {text}
-          </p>
+        <h2 className="text elements" data-aos="flip-up">
+          {titlefirst}<span> {titlesecond}</span>
+        </h2>
 
-    
+        <p className="lead mt-3" data-aos="fade-up" style={{ minHeight: '80px' }}>
+          {text}
+        </p>
       </div>
+
       <div className="row justify-content-center mt-5 elements" style={{ marginLeft: "10px" }}>
-        <div className="col elements m mt-5">
-          <div className="style_moving_info_wrapper__XSE4k">
+        {[ 
+          { label: carrierstext, value: number.carriersnumber },
+          { label: brokerstext, value: number.brokersnumber },
+          { label: loadstext, value: number.loadsnumber },
+        ].map((item, index) => (
+          <div key={index} className="col elements m mt-5">
             <div className="style_moving_info_center__yTejj" data-aos="fade-up">
               <div>
                 <span
                   className="style_moving_info_number__vI2ou"
-                  data-target={number.carriersnumber}
-                  ref={(el) => countersRef.current[0] = el}
+                  data-target={item.value}
+                  ref={el => countersRef.current[index] = el}
                 >
-                  {number.carriersnumber} 
+                  {item.value}
                 </span>
               </div>
-              <h4 className="style_moving_info_reason__IccwQ">{carrierstext}</h4>
+              <h4 className="style_moving_info_reason__IccwQ">{item.label}</h4>
             </div>
           </div>
-        </div>
-
-        <div className="col elements m mt-5">
-          <div className="style_moving_info_center__yTejj" data-aos="fade-up">
-            <div>
-              <span
-                className="style_moving_info_number__vI2ou"
-                style={{marginLeft:"4px"}}
-                data-target={number.brokersnumber}
-                ref={(el) => countersRef.current[1] = el}
-              >
-                {number.brokersnumber} 
-              </span>
-            </div>
-            <h4 className="style_moving_info_reason__IccwQ">{brokerstext}</h4>
-          </div>
-        </div>
-
-        <div className="col elements m mt-5">
-          <div className="style_moving_info_center__yTejj" data-aos="fade-up">
-            <div>
-              <span
-                className="style_moving_info_number__vI2ou"
-                data-target={number.loadsnumber}
-                ref={(el) => countersRef.current[2] = el}
-              >
-                {number.loadsnumber} 
-              </span>
-            </div>
-            <h4 className="style_moving_info_reason__IccwQ">{loadstext}</h4>
-          </div>
-        </div>
+        ))}
       </div>
     </section>
   );
