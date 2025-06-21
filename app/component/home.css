@@ -59,6 +59,13 @@
     font-family:initial !important;
    }
   
+   .col-md-6.empower.elements {
+  min-height: 400px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
   .col-md-6.empower h2{
       font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
       color:white;

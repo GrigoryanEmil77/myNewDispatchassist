@@ -172,7 +172,9 @@ const [video,setVideo] = useState([])
             </span>
           </h2>
           <h2>{titlelarge}</h2>
-          <p className="lead">{text}</p>
+          {/* <p className="lead">{text}</p> */}
+          <p className="lead" style={{ minHeight: '80px' }}>{text}</p>
+
         </div>
       </div>
     </div>
@@ -183,4 +185,3 @@ const [video,setVideo] = useState([])
 };
 
 export default HomeData;
-

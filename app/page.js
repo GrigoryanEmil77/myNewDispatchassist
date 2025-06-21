@@ -14,7 +14,7 @@ import CustomerData from "./component/customer";
 export default function Home() {
 
   return (
-    <div className="next">
+    <div className="next">   
       <NavbarComponent />
       <HomeData />
       <AboutData />

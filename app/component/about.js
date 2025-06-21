@@ -102,10 +102,13 @@ const AboutData = () => {
   return (
     <section className="container py-5" id="About Us">
       <div className="text-center mb-4">
-        <h2 className="text text-center elements" data-aos="flip-up">{titlefirst} <span> {titlesecond}</span></h2>
-        <p className="lead mt-3" data-aos="fade-up" >
-          {text}
-        </p>
+        <h2 className="text text-center elements" data-aos="flip-up">{titlefirst}<span> {titlesecond}</span></h2>
+      
+        <p className="lead mt-3" data-aos="fade-up" style={{ minHeight: '80px' }}>
+         {text}
+          </p>
+
+    
       </div>
       <div className="row justify-content-center mt-5 elements" style={{ marginLeft: "10px" }}>
         <div className="col elements m mt-5">
