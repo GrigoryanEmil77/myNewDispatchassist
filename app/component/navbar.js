@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { Button, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink, Nav } from 'reactstrap';
 
-const MyNavbar = ({ service = [], truckTypes = [], navbars = [] }) => {
+const MyNavbar = ({ navbars = [] }) => {
 
 
   const [isOffcanvasOpen, setOffcanvasOpen] = useState(false);
@@ -27,20 +27,20 @@ const MyNavbar = ({ service = [], truckTypes = [], navbars = [] }) => {
   const toggleTruckTypesDropdown = () => setTruckTypesDropdownOpen(prev => !prev);
   const handleOffcanvasToggle = () => setOffcanvasOpen(prev => !prev);
 
-  const {
-    DryVan = "", Reefer = "", BoxTruck = "", Flatbed = "",
-    StepDeck = "", PowerOnly = ""
-  } = truckTypes[0] || {};
+  // const {
+  //   DryVan = "", Reefer = "", BoxTruck = "", Flatbed = "",
+  //   StepDeck = "", PowerOnly = ""
+  // } = truckTypes[0] || {};
 
   const {
     home = "", about = "", services = "", trucktypes = "",
     testimonials = "", faqs = "", contact = "", setup = "", picture = ""
   } = navbars[0] || {};
 
-  const {
-    LoadSearch = "", Booking = "", BrokerSetup = "", Detention = "",
-    Invoicing = "", Factoring = "", Support = ""
-  } = service[0] || {};
+  // const {
+  //   LoadSearch = "", Booking = "", BrokerSetup = "", Detention = "",
+  //   Invoicing = "", Factoring = "", Support = ""
+  // } = service[0] || {};
 
 
   return (
