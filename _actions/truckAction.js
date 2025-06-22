@@ -1,23 +1,18 @@
 "use server";
-
 import connectDB from "@/config/database";
 import TruckModel from "@/models/truckModel";
 
 export async function getTrucktype() {
   try {
-    console.log(" Connecting to MongoDB...");
+    console.log("Connecting to MongoDB...");
     await connectDB(); 
 
-    
     const rawData = await TruckModel.find();
+    const data = JSON.parse(JSON.stringify(rawData));
     
-
-    const truck= JSON.parse(JSON.stringify(rawData));
-    return { truck };
+    return { data };
   } catch (error) {
-    console.error(" Error fetching data:", error.message);
+    console.error("Error fetching data:", error.message);
     return { errMsg: error.message };
   }
 }
-
-

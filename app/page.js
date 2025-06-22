@@ -1,30 +1,30 @@
-"use client"
 import "./page.css"
-import AboutData from "./component/about";
-import Faq from "./component/faqs";
-import NavbarComponent from "./component/navbar";
-import ServicesData from "./component/services";
-import TruckType from "./component/trucktype";
-import RequestData from "./component/request";
-import TruckStopData from "./component/truckstop";
-import FootherData from "./component/foother";
-import HomeData from "./component/home";
-import CustomerData from "./component/customer";
+import NavbarServer from "./component/NavbarServer";
+import HomeServer from "./component/homeServer";
+import AboutServer from "./component/aboutServer";
+import ServicesServer from "./component/servicesServer";
+import TruckStopServer from "./component/truckStopServer";
+import TruckTypeServer from "./component/trucktypeServer";
+import CustomerServer from "./component/customerServer";
+import QuestionServer from "./component/faqsServer";
+import RequestServer from "./component/requestServer";
+import FootherServer from "./component/footherServer";
 
 export default function Home() {
 
   return (
-    <div className="next">   
-      <NavbarComponent />
-      <HomeData />
-      <AboutData />
-      <ServicesData />
-      <TruckType />
-      <Faq />
-      <CustomerData />
-      <RequestData />
-      <TruckStopData />
-      <FootherData />
+    <div className="next"> 
+
+      <NavbarServer />
+      <HomeServer/>
+      <AboutServer />
+      <ServicesServer />
+      <TruckTypeServer />
+      <QuestionServer/>
+      <CustomerServer />
+      <RequestServer />
+      <TruckStopServer />
+      <FootherServer />
     </div>
   );
 }

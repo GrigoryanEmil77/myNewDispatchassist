@@ -3,12 +3,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import './home.css';
-import { getHome } from '@/_actions/homeAction';
-import { getVideo } from '@/_actions/videoAction';
 
-const HomeData = () => {
-  const [home, setHome] = useState([]);
-  const [video, setVideo] = useState([]);
+const HomeData= ({ home = [], video = [],  }) => {
+
   const [errMsg, setErrMsg] = useState(null);
 
   const previewVideoRef = useRef(null);
@@ -52,29 +49,6 @@ const HomeData = () => {
     }
   }, []);
 
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const [homeRes, videoRes] = await Promise.all([
-          getHome(),
-          getVideo(),
-        ]);
-
-        if (homeRes.errMsg) setErrMsg(homeRes.errMsg);
-        else setHome(homeRes.data);
-
-        if (videoRes.errMsg) setErrMsg(videoRes.errMsg);
-        else setVideo(videoRes.data);
-
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        setErrMsg("Data fetching error.");
-      }
-    };
-
-    fetchData();
-  }, []);
 
   const {
     titlesmall = "", titlesmall1 = "", titlesmall2 = "", titlesmall3 = "",

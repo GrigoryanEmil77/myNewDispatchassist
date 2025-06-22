@@ -1,55 +1,19 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "./foother.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-import { getContact } from "@/_actions/footherAction";
-import { getServicesType } from "@/_actions/servicesAction";
-import { getTrucktype } from "@/_actions/truckAction";
-import { getNavbarData } from "@/_actions/navbarAction";
-import { getFollow } from "@/_actions/followAction";
 
-const FootherData = () => {
-  const [contact, setContact] = useState([]);
-  const [service, setService] = useState([]);
-  const [truckTypes, setTruckTypes] = useState([]);
-  const [navbars, setNavbars] = useState([]);
-  const [follow, setFollows] = useState([]);
+const FootherData = ({contact=[],service=[],truckTypes=[], navbars=[],follow=[]}) => {
 
   useEffect(() => {
     AOS.init({ once: true, duration: 1200 });
     return () => AOS.refreshHard();
   }, []);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const [contactRes, serviceRes, truckRes, navRes, followRes] =
-          await Promise.all([
-            getContact(),
-            getServicesType(),
-            getTrucktype(),
-            getNavbarData(),
-            getFollow(),
-          ]);
-
-        setContact(contactRes?.data || []);
-        setService(serviceRes?.services || []);
-        setTruckTypes(truckRes?.truck || []);
-        setNavbars(navRes?.data || []);
-        setFollows(followRes?.data || []);
-      } catch (error) {
-        console.error("Error loading footer data:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  // Destructuring with fallback values
   const {
     title = "",
     phone = "",

@@ -1,15 +1,13 @@
 "use client";
 import React, { useEffect, useState } from 'react';
-import { getServicesType } from '@/_actions/servicesAction';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import './services.css';
 
-const ServicesData = () => {
-  const [service, setService] = useState([]);
-
+const ServicesData =({ service = []}) => {
+  
   useEffect(() => {
     AOS.init({ once: true, duration: 1200 });
   }, []);
@@ -20,23 +18,6 @@ const ServicesData = () => {
     });
   }, []);
 
-  useEffect(() => {
-    const fetchServiceData = async () => {
-      try {
-        const response = await getServicesType();
-        if (response.errMsg) {
-          console.error(response.errMsg);
-        } else {
-          setService(response.services);
-        }
-      } catch (error) {
-        console.error("Error fetching services:", error);
-      }
-    };
-
-    fetchServiceData();
-  }, []);
-
   const splitWithBreaks = (text = "") =>
     text.split(" || ").map((part, index, arr) => (
       <React.Fragment key={index}>
@@ -45,8 +26,7 @@ const ServicesData = () => {
       </React.Fragment>
     ));
 
-  if (service.length === 0) return null;
-
+  
   const {
     titlefirst = "", titlesecond = "",
     LoadSearch = "", Booking = "", BrokerSetup = "", Detention = "",

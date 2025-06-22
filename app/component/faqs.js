@@ -5,33 +5,13 @@ import "./faqs.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const Faq = () => {
+const Faq = ({questionsData = []}) => {
   const [activeFAQs, setActiveFAQs] = useState({});
-  const [questionsData, setQuestionsData] = useState([]);
 
   useEffect(() => {
     AOS.init({ once: true, duration: 1200 });
     return () => AOS.refreshHard();
   }, []);
-
-  useEffect(() => {
-    const fetchQuestions = async () => {
-      try {
-        const response = await getQuestions();
-        if (response.errMsg) {
-          console.error(response.errMsg);
-        } else {
-          setQuestionsData(response.data);
-        }
-      } catch (error) {
-        console.error("Error fetching FAQ data:", error);
-      }
-    };
-
-    fetchQuestions();
-  }, []);
-
-  if (questionsData.length === 0) return null;
 
   const {
     titlefirst = "",

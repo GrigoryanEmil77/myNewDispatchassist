@@ -7,11 +7,11 @@ import './about.css';
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const AboutData = () => {
+const AboutData = ({ abouts = [] }) => {
   const countersRef = useRef([]);
   const hasFetched = useRef(false); 
 
-  const [abouts, setAbouts] = useState([]);
+  // const [abouts, setAbouts] = useState([]);
   const [number, setNumber] = useState({
     carriersnumber: 0,
     brokersnumber: 0,
@@ -35,7 +35,7 @@ const AboutData = () => {
           console.error("Error:", response.errMsg);
         } else {
           const aboutData = response.data[0] || {};
-          setAbouts(response.data);
+       
           setNumber({
             carriersnumber: +aboutData.carriersnumber || 0,
             brokersnumber: +aboutData.brokersnumber || 0,

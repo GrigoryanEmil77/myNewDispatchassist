@@ -10,8 +10,8 @@ import "aos/dist/aos.css";
 import { Button } from 'reactstrap';
 
 
-const RequestData = () => {
-  const [request, setRequest] = useState([]);
+const RequestData = ({request = []}) => {
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -29,26 +29,6 @@ const RequestData = () => {
     };
   }, []);
   
-
-  useEffect(() => {
-    const fetchTruckTypes = async () => {
-      try {
-     
-        const response = await getRequest();
-        if (response.errMsg) {
-          setErrMsg(response.errMsg);
-        } else {
-          setRequest(response.data);
-        }
-      } catch (error) {
-        console.error("Error fetching truck types:", error);
-       
-      }
-
-    };
-
-    fetchTruckTypes();
-  }, []);
 
 useEffect(() => {
   emailjs.init("tSr3jHOvVSSg1jkfL");

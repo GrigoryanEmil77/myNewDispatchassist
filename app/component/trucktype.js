@@ -1,110 +1,218 @@
 "use client";
-import React, { useEffect, useState } from 'react';
-import { getTrucktype } from '@/_actions/truckAction';
+import React, {useEffect,useState  } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import './trucktype.css';
+import './trucktype.css'
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const TruckType = () => {
-  const [truckTypes, setTruckTypes] = useState([]);
-  const [readMoreStates, setReadMoreStates] = useState([]);
-
-  useEffect(() => {
-    AOS.init({ once: true, duration: 1200 });
-  }, []);
-
-  useEffect(() => {
-    const fetchTruckTypes = async () => {
-      try {
-        const response = await getTrucktype();
-        if (response.errMsg) {
-          console.error(response.errMsg);
-        } else {
-          const data = response.truck || [];
-          setTruckTypes(data);
-          setReadMoreStates(new Array(6).fill(true)); // 6 truck types
-        }
-      } catch (error) {
-        console.error("Error fetching truck types:", error);
-      }
+const TruckType = ({ truckTypes = [] }) => {
+  
+   const [isReadMore, setIsReadMore] = useState(true);
+   const [aosInitialized, setAosInitialized] = useState(false);   
+  const toggleReadMore = () => {
+      setIsReadMore(!isReadMore);
     };
-    fetchTruckTypes();
-  }, []);
+  
+    useEffect(() => {
+      const handleScroll = () => {
+        if (!aosInitialized) {
+          AOS.init({
+            once: true,
+            duration: 1200,
+          });
+          setAosInitialized(true);
+        } else {
+          AOS.refreshHard(); 
+        }
+      };
+  
+      window.addEventListener("scroll", handleScroll); 
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }, [aosInitialized]);
+  
+   
+      const { titleTruck="", DryVan="",Reefer="", BoxTruck="",Flatbed="", StepDeck="",PowerOnly="",DryVantext="",
+      DryVanpicture="",Reeferpicture="", BoxTruckpicture="",Flatbedpicture="", StepDeckpicture="",PowerOnlypicture="",
+             Reefertext="",BoxTrucktext="",Flatbedtext="",StepDecktext="",PowerOnlytext="",}=
+      truckTypes.length > 0 ? truckTypes[0] : {};
+    
 
-  const toggleReadMore = (index) => {
-    setReadMoreStates((prev) => {
-      const newStates = [...prev];
-      newStates[index] = !newStates[index];
-      return newStates;
-    });
-  };
+    useEffect(() => {
+        const parentContainer = document.querySelector(".read-more-container");
+    
+        if (parentContainer) {
+     
+          const handleClick = (event) => {
+            const current = event.target;
+            const isReadMoreBtn = current.className.includes("read-more");
+    
+            if (!isReadMoreBtn) return;
+    
+            const currentText = event.target.parentNode.querySelector(".read-more-text");
+            currentText.classList.toggle("read-more-text--show");
 
-  if (truckTypes.length === 0) return null;
+            current.textContent = current.textContent.includes("Read More")
+              ? "Read Less..."
+              : "Read More";
+          };
 
-  const {
-    titleTruck = "",
-    DryVan = "", DryVantext = "", DryVanpicture = "",
-    Reefer = "", Reefertext = "", Reeferpicture = "",
-    BoxTruck = "", BoxTrucktext = "", BoxTruckpicture = "",
-    Flatbed = "", Flatbedtext = "", Flatbedpicture = "",
-    StepDeck = "", StepDecktext = "", StepDeckpicture = "",
-    PowerOnly = "", PowerOnlytext = "", PowerOnlypicture = "",
-  } = truckTypes[0] || {};
-
-  const trucks = [
-    {title: DryVan, text: DryVantext, img: DryVanpicture,id:"DRY VAN" , },
-    { title: Reefer, text: Reefertext, img: Reeferpicture,id:"REEFER" },
-    { title: BoxTruck, text: BoxTrucktext, img: BoxTruckpicture, id:"BOX TRUCK" },
-    { title: Flatbed, text: Flatbedtext, img: Flatbedpicture, id:"FLATBED" },
-    { title: StepDeck, text: StepDecktext, img: StepDeckpicture, id:"STEP DECK" },
-    { title: PowerOnly, text: PowerOnlytext, img: PowerOnlypicture, id:"POWER ONLY" },
-  ];
-
+          parentContainer.addEventListener("click", handleClick);
+   
+          return () => {
+            parentContainer.removeEventListener("click", handleClick);
+          };
+        }
+      }, []); 
+   
+    
   return (
-    <section className="full-width-section mt-5 elements">
-      <div className="read-more-container elements">
-        <h2 className="text trucks" data-aos="flip-up">{titleTruck}</h2>
-        <div className="row mt-5 elements">
-          {trucks.map(({ title, text, img,id }, index) => (
-            <div className="col-md-4 mt-3 elements" id={id} key={index}>
-              {img && (
-                <img
-                  src={img}
-                  data-aos="fade-right"
-                  width="200"
-                  height="100"
-                  className="truck"
-                  alt={`truck${index}`}
-                />
-              )}
-              <h3 className="mt-4" data-aos="fade-up">{title}</h3>
-              <p>
-                {readMoreStates[index] ? text.slice(0, 100) : text}
-                {text.length > 100 && (
-                  <span className="read-more-text">
-                    {readMoreStates[index] ? `...` : ''}
-                  </span>
-                )}
-              </p>
-              {text.length > 100 && (
-                <button
-                  type="button"
-                  data-aos="fade-up"
-                  className="read-more-btn"
-                  onClick={() => toggleReadMore(index)}
-                >
-                  {readMoreStates[index] ? 'Read More' : 'Read Less'}
-                </button>
-              )}
-            </div>
-          ))}
+   
+    
+    <section className="full-width-section mt-5  elements">
+        <div className="read-more-container elements">
+            <h2 className="text trucks"  data-aos="flip-up" >{titleTruck}</h2>
+            <div className="row mt-5 elements" >
+                <div className="col-md-4 mt-2 elements" id="DRY VAN">
+                <img src={DryVanpicture ||null}  data-aos="fade-right" className="truck" alt='pic1'/> 
+                    <h3 className="mt-4" data-aos="fade-up">{DryVan}</h3>
+                         <p>
+        {isReadMore ? `${DryVantext.slice(0, 100)}` : DryVantext} 
+        <span
+  className="read-more-text"
+  onClick={toggleReadMore}
+  role="button"
+  tabIndex={0}
+  onKeyDown={(e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      toggleReadMore();
+    }
+  }}
+>
+  {isReadMore ? DryVantext.slice(100, 500) : 'Read Less'}
+</span>
+
+      </p>
+                        <button type="button" data-aos="fade-up" className="read-more-btn">Read More</button>
+                </div>
+                <div className="col-md-4 mt-2 elements" id="REEFER" >
+                <img src={Reeferpicture ||null}  data-aos="fade-right" className="truck" alt='pic2'/> 
+                    <h3 className="mt-4" data-aos="fade-up">{Reefer}</h3>
+                    <p
+                    className='reefert'>
+        {isReadMore ? `${Reefertext.slice(0, 100)}` : Reefertext} 
+        <span
+  className="read-more-text"
+  onClick={toggleReadMore}
+  role="button"
+  tabIndex={0}
+  onKeyDown={(e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      toggleReadMore();
+    }
+  }}
+>
+  {isReadMore ? Reefertext.slice(95, 500) : 'Read Less'}
+</span>
+
+      </p>
+                        <button type="button" data-aos="fade-up" className="read-more-btn">Read More</button>
+                </div>
+                <div className="col-md-4 mt-2 elements" id="BOX TRUCK">
+                <img src={BoxTruckpicture ||null}  data-aos="fade-right" className="truck" alt='pic3'/> 
+                    <h3 className="mt-4" data-aos="fade-up">{BoxTruck}</h3>
+             
+                    <p>
+        {isReadMore ? `${BoxTrucktext.slice(0, 97)}` : BoxTrucktext} 
+        <span
+  className="read-more-text"
+  onClick={toggleReadMore}
+  role="button"
+  tabIndex={0}
+  onKeyDown={(e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      toggleReadMore();
+    }
+  }}
+>
+  {isReadMore ? BoxTrucktext.slice(97, 500) : 'Read Less'}
+</span>
+
+      </p>
+                          <button type="button" data-aos="fade-up" className="read-more-btn">Read More</button>
+                </div>
+                <div className="col-md-4 mt-3 elements" id="FLATBED">
+                <img src={Flatbedpicture ||null}  data-aos="fade-right" className="truck" alt='pic4'/> 
+                    <h3 className="mt-4" data-aos="fade-up">{Flatbed}</h3>
+                    <p className='flat'>
+        {isReadMore ? `${Flatbedtext.slice(0, 100)}` : Flatbedtext} 
+        <span
+  className="read-more-text"
+  onClick={toggleReadMore}
+  role="button"
+  tabIndex={0}
+  onKeyDown={(e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      toggleReadMore();
+    }
+  }}
+>
+  {isReadMore ? Flatbedtext.slice(100, 500) : 'Read Less'}
+</span>
+
+      </p>
+                    <button type="button" data-aos="fade-up" className="read-more-btn">Read More</button>
+                </div>
+                <div className="col-md-4 mt-3 elements" id="STEP DECK">
+                <img src={StepDeckpicture ||null}  data-aos="fade-right" className="truck" alt='pic5' /> 
+                    <h3 className="mt-4" data-aos="fade-up">{StepDeck}</h3>
+                    <p className='stepdeck'>
+        {isReadMore ? `${StepDecktext.slice(0, 90)}` : StepDecktext} 
+        <span
+  className="read-more-text"
+  onClick={toggleReadMore}
+  role="button"
+  tabIndex={0}
+  onKeyDown={(e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      toggleReadMore();
+    }
+  }}
+>
+  {isReadMore ? StepDecktext.slice(90, 500) : 'Read Less'}
+</span>
+      </p>
+                <button type="button" data-aos="fade-up" className="read-more-btn">Read More</button>
+                </div>
+                <div className="col-md-4 mt-3 elements" id="POWER ONLY">
+                <img src={PowerOnlypicture ||null}  data-aos="fade-right" className="truck"  alt='pic6'/> 
+                    <h3 className="mt-4" data-aos="fade-up">{PowerOnly}</h3>
+                    <p>
+        {isReadMore ? `${PowerOnlytext.slice(0, 98)}` : PowerOnlytext} 
+        <span
+  className="read-more-text"
+  onClick={toggleReadMore}
+  role="button"
+  tabIndex={0}
+  onKeyDown={(e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      toggleReadMore();
+    }
+  }}
+>
+  {isReadMore ? PowerOnlytext.slice(98, 500) : 'Read Less'}
+</span>
+      </p>
+                    <button type="button" data-aos="fade-up" className="read-more-btn">Read More</button>
+                </div>   
         </div>
       </div>
     </section>
+    
+
   );
 };
 
 export default TruckType;
-

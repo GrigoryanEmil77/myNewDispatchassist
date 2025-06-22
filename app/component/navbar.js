@@ -1,75 +1,24 @@
-'use client';
-import React, { useEffect, useState } from 'react';
+"use client";
+import React, { useState } from 'react';
 import './navbar.css';
-import "bootstrap/dist/css/bootstrap.min.css"; 
-import "bootstrap-icons/font/bootstrap-icons.css"; 
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
 import { Button, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink, Nav } from 'reactstrap';
-import { getServicesType } from '@/_actions/servicesAction';
-import { getTrucktype } from '@/_actions/truckAction';
-import { getNavbarData } from '@/_actions/navbarAction';
 
-const MyNavbar = () => {
-  const [navbars, setNavbars] = useState([]);
-  const [service, setService] = useState([]);
-  const [truckTypes, setTruckTypes] = useState([]);
+const MyNavbar = ({ service = [], truckTypes = [], navbars = [] }) => {
+
 
   const [isOffcanvasOpen, setOffcanvasOpen] = useState(false);
   const [isServicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const [isTruckTypesDropdownOpen, setTruckTypesDropdownOpen] = useState(false);
 
-  const [loading, setLoading] = useState(true);
-  const [errMsg, setErrMsg] = useState(null);
-
-
-  useEffect(() => {
-    const fetchAllData = async () => {
-      setLoading(true);
-      try {
-        const [navbarsRes, serviceRes, truckTypesRes] = await Promise.all([
-          getNavbarData(),
-          getServicesType(),
-          getTrucktype(),
-        ]);
-
-        if (navbarsRes.errMsg) {
-          setErrMsg(navbarsRes.errMsg);
-        } else {
-          setNavbars(navbarsRes.data);
-        }
-
-        if (serviceRes.errMsg) {
-          setErrMsg(serviceRes.errMsg);
-        } else {
-          setService(serviceRes.services);
-        }
-
-        if (truckTypesRes.errMsg) {
-          setErrMsg(truckTypesRes.errMsg);
-        } else {
-          setTruckTypes(truckTypesRes.truck);
-        }
-      } catch (error) {
-        setErrMsg("Error fetching data");
-        console.error("Error fetching data:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchAllData();
-  }, []);
-
-
   const handleScroll = (e, sectionId) => {
     e.preventDefault();
     const section = document.getElementById(sectionId);
-    const navbarHeight = document.querySelector('.navbar').offsetHeight;
+    const navbarHeight = document.querySelector('.navbar')?.offsetHeight || 0;
     if (section) {
       const elementPosition = section.getBoundingClientRect().top + window.scrollY - navbarHeight;
-      window.scrollTo({
-        top: elementPosition,
-        behavior: "smooth"
-      });
+      window.scrollTo({ top: elementPosition, behavior: "smooth" });
       setOffcanvasOpen(false);
     }
   };
@@ -78,37 +27,21 @@ const MyNavbar = () => {
   const toggleTruckTypesDropdown = () => setTruckTypesDropdownOpen(prev => !prev);
   const handleOffcanvasToggle = () => setOffcanvasOpen(prev => !prev);
 
+  const {
+    DryVan = "", Reefer = "", BoxTruck = "", Flatbed = "",
+    StepDeck = "", PowerOnly = ""
+  } = truckTypes[0] || {};
 
   const {
     home = "", about = "", services = "", trucktypes = "",
     testimonials = "", faqs = "", contact = "", setup = "", picture = ""
-  } = navbars.length > 0 ? navbars[0] : {};
+  } = navbars[0] || {};
 
   const {
     LoadSearch = "", Booking = "", BrokerSetup = "", Detention = "",
     Invoicing = "", Factoring = "", Support = ""
-  } = service.length > 0 ? service[0] : {};
+  } = service[0] || {};
 
-  const {
-    DryVan = "", Reefer = "", BoxTruck = "", Flatbed = "",
-    StepDeck = "", PowerOnly = ""
-  } = truckTypes.length > 0 ? truckTypes[0] : {};
-
-  if (loading) {
-    return (
-      <div className="loading-spinner" style={{ textAlign: 'center', padding: '2.2rem' }}>
- 
-      </div>
-    );
-  }
-
-  if (errMsg) {
-    return (
-      <div className="error-message" style={{ textAlign: 'center', padding: '1rem', color: 'red' }}>
-        {errMsg}
-      </div>
-    );
-  }
 
   return (
     <Navbar className="navbar navbar-expand-lg fixed-top">
@@ -116,112 +49,68 @@ const MyNavbar = () => {
         {picture && (
           <img
             src={picture}
-            id="logo"
             alt="Logo"
-            className="navbar-brand"
-            width="105"
+            width="120"
             height="auto"
-            style={{
-              WebkitUserDrag: "none",
-              userDrag: "none",
-              userSelect: "none",
-            }}
+        
+            style={{ WebkitUserDrag: "none", userDrag: "none", userSelect: "none" }}
           />
         )}
       </NavbarBrand>
 
-      <NavbarToggler className="navbar-toggler" onClick={handleOffcanvasToggle} />
+      <NavbarToggler onClick={handleOffcanvasToggle} />
 
-      <div className={`offcanvas offcanvas-end ${isOffcanvasOpen ? 'show' : ''}`} tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div className={`offcanvas offcanvas-end ${isOffcanvasOpen ? 'show' : ''}`} tabIndex="-1">
         <div className="offcanvas-header">
           <Button close aria-label="Close" onClick={handleOffcanvasToggle} />
         </div>
         <div className="offcanvas-body">
           <Nav className="navbar-nav justify-content-end flex-grow-1 pe-3">
-            <NavItem className="custom-spacing">
-              <NavLink className="dropdown-item" href="#Home" onClick={e => handleScroll(e, "Home")}>{home}</NavLink>
-            </NavItem>
-
-            <NavItem className="custom-spacing">
-              <NavLink className="dropdown-item" href="#About Us" onClick={e => handleScroll(e, "About Us")}>{about}</NavLink>
-            </NavItem>
-
-            <NavItem className="nav-item dropdown custom-spacing">
-              <NavLink className="nav-link dropdown-toggle" onClick={toggleServicesDropdown} href="#">
-                {services}
-              </NavLink>
+            <NavItem><NavLink href="#Home" onClick={e => handleScroll(e, "Home")}>{home}</NavLink></NavItem>
+            <NavItem><NavLink href="#About Us" onClick={e => handleScroll(e, "About Us")}>{about}</NavLink></NavItem>
+            <NavItem className="dropdown">
+              <NavLink className="dropdown-toggle" onClick={toggleServicesDropdown}>{services}</NavLink>
               <div className={`dropdown-menu ${isServicesDropdownOpen ? 'show' : ''}`}>
-                <a className="dropdown-item" href="#LOAD SEARCH FTL/LTL" onClick={e => handleScroll(e, "LOAD SEARCH FTL/LTL")}>{LoadSearch}</a>
-                <a className="dropdown-item" href="#RATE NEGOTIATION & BOOKING" onClick={e => handleScroll(e, "RATE NEGOTIATION & BOOKING")}>
-                  {Booking.split(" || ").map((part, index) => (
-                    <React.Fragment key={index}>
-                      {part}
-                      {index !== Booking.split(" || ").length - 1 && <br />}
-                    </React.Fragment>
-                  ))}
-                </a>
-                <a className="dropdown-item" href="#BROKER SETUP" onClick={e => handleScroll(e, "BROKER SETUP")}>{BrokerSetup}</a>
-                <a className="dropdown-item" href="#DETENTION LAYOVER TONU" onClick={e => handleScroll(e, "DETENTION LAYOVER TONU")}>
-                  {Detention.split(" || ").join(" ")}
-                </a>
-                <a className="dropdown-item" href="#INVOICING" onClick={e => handleScroll(e, "INVOICING")}>{Invoicing}</a>
-                <a className="dropdown-item" href="#FACTORING & INSURANCE ASSISTANCE" onClick={e => handleScroll(e, "FACTORING & INSURANCE ASSISTANCE")}>
-                  {Factoring.split(" || ").map((part, index) => (
-                    <React.Fragment key={index}>
-                      {part}
-                      {index !== Factoring.split(" || ").length - 1 && <br />}
-                    </React.Fragment>
-                  ))}
-                </a>
-                <a className="dropdown-item" href="#Support" onClick={e => handleScroll(e, "Support")}>{Support}</a>
-
-                <a
-                  className="nav-link dropdown-toggle"
-                  
-                  style={{ fontWeight: "bold", fontSize: "20px" }}
-                  onClick={toggleTruckTypesDropdown}
-                >
-                  {trucktypes}
-                </a>
+                <a className="dropdown-item" href="#LOAD SEARCH FTL/LTL" onClick={e => handleScroll(e, "LOAD SEARCH FTL/LTL")}>LOAD SEARCH FTL/LTL</a>
+                  <a className="dropdown-item" href="#LOAD SEARCH FTL/LTL" onClick={e => handleScroll(e, "LOAD SEARCH FTL/LTL")}>RATE NEGOTIATION &
+                  <br></br> BOOKING</a>
+               
+                {/* <a className="dropdown-item" href="#RATE NEGOTIATION & BOOKING" onClick={e => handleScroll(e, "RATE NEGOTIATION & BOOKING")}>
+                  {Booking.split(" || ").map((part, i) => <React.Fragment key={i}>{part}<br /></React.Fragment>)}
+                </a> */}
+                <a className="dropdown-item" href="#BROKER SETUP" onClick={e => handleScroll(e, "BROKER SETUP")}>BROKER SETUP</a>
+                <a className="dropdown-item" href="#DETENTION LAYOVER TONU" onClick={e => handleScroll(e, "DETENTION LAYOVER TONU")}>DETENTION LAYOVER TONU</a>
+                <a className="dropdown-item" href="#INVOICING" onClick={e => handleScroll(e, "INVOICING")}>INVOICING</a>
+                <a className="dropdown-item" href="#INVOICING" onClick={e => handleScroll(e, "INVOICING")}>FACTORING & INSURANCE <br></br> ASSISTANCE</a>      
+                {/* <a className="dropdown-item" href="#FACTORING & INSURANCE ASSISTANCE" onClick={e => handleScroll(e, "FACTORING & INSURANCE ASSISTANCE")}>
+                  {Factoring.split(" || ").map((part, i) => <React.Fragment key={i}>{part}<br /></React.Fragment>)}
+                </a> */}
+                <a className="dropdown-item" href="#Support" onClick={e => handleScroll(e, "Support")}>24/7 SUPPORT</a>
+                <a className="nav-link dropdown-toggle" style={{fontSize:"20px"}} onClick={toggleTruckTypesDropdown}>{trucktypes}</a>
                 <div className={`dropdown-menu ${isTruckTypesDropdownOpen ? 'show' : ''}`}>
-                  <a className="dropdown-item" href="#DRY VAN" onClick={e => handleScroll(e, "DRY VAN")}>{DryVan}</a>
-                  <a className="dropdown-item" href="#REEFER" onClick={e => handleScroll(e, "REEFER")}>{Reefer}</a>
-                  <a className="dropdown-item" href="#BOX TRUCK" onClick={e => handleScroll(e, "BOX TRUCK")}>{BoxTruck}</a>
-                  <a className="dropdown-item" href="#FLATBED" onClick={e => handleScroll(e, "FLATBED")}>{Flatbed}</a>
-                  <a className="dropdown-item" href="#STEP DECK" onClick={e => handleScroll(e, "STEP DECK")}>{StepDeck}</a>
-                  <a className="dropdown-item" href="#POWER ONLY" onClick={e => handleScroll(e, "POWER ONLY")}>{PowerOnly}</a>
+                  <a className="dropdown-item" href="#DRY VAN" onClick={e => handleScroll(e, "DRY VAN")}>DRY VAN</a>
+                  <a className="dropdown-item" href="#REEFER" onClick={e => handleScroll(e, "REEFER")}>REEFER</a>
+                  <a className="dropdown-item" href="#BOX TRUCK" onClick={e => handleScroll(e, "BOX TRUCK")}>BOX TRUCK</a>
+                  <a className="dropdown-item" href="#FLATBED" onClick={e => handleScroll(e, "FLATBED")}>FLATBED</a>
+                  <a className="dropdown-item" href="#STEP DECK" onClick={e => handleScroll(e, "STEP DECK")}>STEP DECK</a>
+                  <a className="dropdown-item" href="#POWER ONLY" onClick={e => handleScroll(e, "POWER ONLY")}>POWER ONLY</a>
                 </div>
               </div>
             </NavItem>
-
-            <NavItem className="nav-item custom-spacing">
-              <NavLink className="dropdown-item" href="#FAQ" onClick={e => handleScroll(e, "FAQ")}>{faqs}</NavLink>
-            </NavItem>
-
-            <NavItem className="nav-item custom-spacing">
-              <NavLink className="dropdown-item" href="#Customer" onClick={e => handleScroll(e, "Customer")}>{testimonials}</NavLink>
-            </NavItem>
-
-            <NavItem className="nav-item custom-spacing">
-              <NavLink className="dropdown-item" href="#Contact" onClick={e => handleScroll(e, "Contact")}>{contact}</NavLink>
-            </NavItem>
-
-            <NavItem className="nav-item custom-spacing">
-              <Button
-                color="black"
-                style={{ marginLeft: "10px" }}
-                onClick={() => {
-                  setOffcanvasOpen(false);
-                  document.getElementById("SETUP")?.scrollIntoView({ behavior: "smooth" });
-                }}
-              >
-                {setup}
-              </Button>
+            <NavItem><NavLink href="#FAQ" onClick={e => handleScroll(e, "FAQ")}>{faqs}</NavLink></NavItem>
+            <NavItem><NavLink href="#Customer" onClick={e => handleScroll(e, "Customer")}>{testimonials}</NavLink></NavItem>
+            <NavItem><NavLink href="#Contact" onClick={e => handleScroll(e, "Contact")}>{contact}</NavLink></NavItem>
+            <NavItem>
+              <Button color="black" onClick={() => {
+                setOffcanvasOpen(false);
+                document.getElementById("SETUP")?.scrollIntoView({ behavior: "smooth" });
+              }}>{setup}</Button>
             </NavItem>
           </Nav>
         </div>
       </div>
     </Navbar>
+
   );
 };
 

@@ -12,8 +12,8 @@ export async function getServicesType() {
     const rawData = await ServicesModel.find();
     
 
-    const services= JSON.parse(JSON.stringify(rawData));
-    return { services };
+    const data= JSON.parse(JSON.stringify(rawData));
+    return { data };
   } catch (error) {
     console.error("Error fetching data:", error.message);
     return { errMsg: error.message };

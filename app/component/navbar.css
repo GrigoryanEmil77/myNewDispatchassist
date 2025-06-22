@@ -1,7 +1,6 @@
 .navbar-brand {
-    padding-left:17px;
-    width: 105px;
-    height: auto;
+    padding-left:18px;
+ 
     transform: scale(1.5); 
     transition: transform 0.7s ease; 
   }
