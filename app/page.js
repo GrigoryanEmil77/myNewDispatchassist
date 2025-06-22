@@ -1,14 +1,14 @@
 import "./page.css";
-import NavbarServer from "./component/NavbarServer";
-import HomeServer from "./component/homeServer";
-import AboutServer from "./component/aboutServer";
-import ServicesServer from "./component/servicesServer";
-import TruckStopServer from "./component/truckStopServer";
-import TruckTypeServer from "./component/trucktypeServer";
-import CustomerServer from "./component/customerServer";
-import QuestionServer from "./component/faqsServer";
-import RequestServer from "./component/requestServer";
-import FootherServer from "./component/footherServer";
+import NavbarServer from "./component/NavServer";
+import HomeServer from "./component/HomServer";
+import AboutServer from "./component/AboServer";
+import ServicesServer from "./component/ServServer";
+import TruckStopServer from "./component/TruckSServer";
+import TruckTypeServer from "./component/TruckTyServer";
+import CustomerServer from "./component/CustomServer";
+import QuestionServer from "./component/FaqServer";
+import RequestServer from "./component/ReqServer";
+import FootherServer from "./component/FootServer";
 
 export default function Home() {
   return (
