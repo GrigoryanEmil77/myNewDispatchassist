@@ -27,10 +27,7 @@ const MyNavbar = ({ navbars = [] }) => {
   const toggleTruckTypesDropdown = () => setTruckTypesDropdownOpen(prev => !prev);
   const handleOffcanvasToggle = () => setOffcanvasOpen(prev => !prev);
 
-  // const {
-  //   DryVan = "", Reefer = "", BoxTruck = "", Flatbed = "",
-  //   StepDeck = "", PowerOnly = ""
-  // } = truckTypes[0] || {};
+
 
   const {
     home = "", about = "", services = "", trucktypes = "",

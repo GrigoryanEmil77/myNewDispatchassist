@@ -1,4 +1,5 @@
 import "./page.css"
+
 import NavbarServer from "./component/NavbarServer";
 import HomeServer from "./component/homeServer";
 import AboutServer from "./component/aboutServer";
@@ -14,7 +15,6 @@ export default function Home() {
 
   return (
     <div className="next"> 
-
       <NavbarServer />
       <HomeServer/>
       <AboutServer />
