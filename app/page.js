@@ -1,5 +1,4 @@
-import "./page.css"
-
+import "./page.css";
 import NavbarServer from "./component/NavbarServer";
 import HomeServer from "./component/homeServer";
 import AboutServer from "./component/aboutServer";
@@ -12,15 +11,14 @@ import RequestServer from "./component/requestServer";
 import FootherServer from "./component/footherServer";
 
 export default function Home() {
-
   return (
     <div className="next"> 
       <NavbarServer />
-      <HomeServer/>
+      <HomeServer />
       <AboutServer />
       <ServicesServer />
       <TruckTypeServer />
-      <QuestionServer/>
+      <QuestionServer />
       <CustomerServer />
       <RequestServer />
       <TruckStopServer />
