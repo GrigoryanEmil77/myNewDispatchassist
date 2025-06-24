@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { Button, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink, Nav } from 'reactstrap';
 
-const MyNavbar = ({ navbars = [] }) => {
+const MyNavbar = ({ navbars = [],service = [], truckTypes = []}) => {
 
 
   const [isOffcanvasOpen, setOffcanvasOpen] = useState(false);
@@ -34,11 +34,13 @@ const MyNavbar = ({ navbars = [] }) => {
     testimonials = "", faqs = "", contact = "", setup = "", picture = ""
   } = navbars[0] || {};
 
-  // const {
-  //   LoadSearch = "", Booking = "", BrokerSetup = "", Detention = "",
-  //   Invoicing = "", Factoring = "", Support = ""
-  // } = service[0] || {};
+  const {
+    LoadSearch = "", Booking = "", BrokerSetup = "", Detention = "",
+    Invoicing = "", Factoring = "", Support = ""
+  } = service[0] || {};
 
+  const {DryVan="",Reefer="", BoxTruck="",Flatbed="", StepDeck="",PowerOnly="",}=
+      truckTypes.length > 0 ? truckTypes[0] : {};
 
   return (
     <Navbar className="navbar navbar-expand-lg fixed-top">
@@ -68,29 +70,25 @@ const MyNavbar = ({ navbars = [] }) => {
             <NavItem className="dropdown">
               <NavLink className="dropdown-toggle" onClick={toggleServicesDropdown}>{services}</NavLink>
               <div className={`dropdown-menu ${isServicesDropdownOpen ? 'show' : ''}`}>
-                <a className="dropdown-item" href="#LOAD SEARCH FTL/LTL" onClick={e => handleScroll(e, "LOAD SEARCH FTL/LTL")}>LOAD SEARCH FTL/LTL</a>
-                  <a className="dropdown-item" href="#LOAD SEARCH FTL/LTL" onClick={e => handleScroll(e, "LOAD SEARCH FTL/LTL")}>RATE NEGOTIATION &
-                  <br></br> BOOKING</a>
-               
-                {/* <a className="dropdown-item" href="#RATE NEGOTIATION & BOOKING" onClick={e => handleScroll(e, "RATE NEGOTIATION & BOOKING")}>
+                <a className="dropdown-item" href="#LOAD SEARCH FTL/LTL" onClick={e => handleScroll(e, "LOAD SEARCH FTL/LTL")}>{LoadSearch}</a>
+                <a className="dropdown-item" href="#RATE NEGOTIATION & BOOKING" onClick={e => handleScroll(e, "RATE NEGOTIATION & BOOKING")}>
                   {Booking.split(" || ").map((part, i) => <React.Fragment key={i}>{part}<br /></React.Fragment>)}
-                </a> */}
-                <a className="dropdown-item" href="#BROKER SETUP" onClick={e => handleScroll(e, "BROKER SETUP")}>BROKER SETUP</a>
-                <a className="dropdown-item" href="#DETENTION LAYOVER TONU" onClick={e => handleScroll(e, "DETENTION LAYOVER TONU")}>DETENTION LAYOVER TONU</a>
-                <a className="dropdown-item" href="#INVOICING" onClick={e => handleScroll(e, "INVOICING")}>INVOICING</a>
-                <a className="dropdown-item" href="#INVOICING" onClick={e => handleScroll(e, "INVOICING")}>FACTORING & INSURANCE <br></br> ASSISTANCE</a>      
-                {/* <a className="dropdown-item" href="#FACTORING & INSURANCE ASSISTANCE" onClick={e => handleScroll(e, "FACTORING & INSURANCE ASSISTANCE")}>
+                </a>
+                <a className="dropdown-item" href="#BROKER SETUP" onClick={e => handleScroll(e, "BROKER SETUP")}>{BrokerSetup}</a>
+                <a className="dropdown-item" href="#DETENTION LAYOVER TONU" onClick={e => handleScroll(e, "DETENTION LAYOVER TONU")}>{Detention}</a>
+                <a className="dropdown-item" href="#INVOICING" onClick={e => handleScroll(e, "INVOICING")}>{Invoicing}</a>      
+                <a className="dropdown-item" href="#FACTORING & INSURANCE ASSISTANCE" onClick={e => handleScroll(e, "FACTORING & INSURANCE ASSISTANCE")}>
                   {Factoring.split(" || ").map((part, i) => <React.Fragment key={i}>{part}<br /></React.Fragment>)}
-                </a> */}
-                <a className="dropdown-item" href="#Support" onClick={e => handleScroll(e, "Support")}>24/7 SUPPORT</a>
+                </a>
+                <a className="dropdown-item" href="#Support" onClick={e => handleScroll(e, "Support")}>{Support}</a>
                 <a className="nav-link dropdown-toggle" style={{fontSize:"20px"}} onClick={toggleTruckTypesDropdown}>{trucktypes}</a>
                 <div className={`dropdown-menu ${isTruckTypesDropdownOpen ? 'show' : ''}`}>
-                  <a className="dropdown-item" href="#DRY VAN" onClick={e => handleScroll(e, "DRY VAN")}>DRY VAN</a>
-                  <a className="dropdown-item" href="#REEFER" onClick={e => handleScroll(e, "REEFER")}>REEFER</a>
-                  <a className="dropdown-item" href="#BOX TRUCK" onClick={e => handleScroll(e, "BOX TRUCK")}>BOX TRUCK</a>
-                  <a className="dropdown-item" href="#FLATBED" onClick={e => handleScroll(e, "FLATBED")}>FLATBED</a>
-                  <a className="dropdown-item" href="#STEP DECK" onClick={e => handleScroll(e, "STEP DECK")}>STEP DECK</a>
-                  <a className="dropdown-item" href="#POWER ONLY" onClick={e => handleScroll(e, "POWER ONLY")}>POWER ONLY</a>
+                  <a className="dropdown-item" href="#DRY VAN" onClick={e => handleScroll(e, "DRY VAN")}>{DryVan}</a>
+                  <a className="dropdown-item" href="#REEFER" onClick={e => handleScroll(e, "REEFER")}>{Reefer}</a>
+                  <a className="dropdown-item" href="#BOX TRUCK" onClick={e => handleScroll(e, "BOX TRUCK")}>{BoxTruck}</a>
+                  <a className="dropdown-item" href="#FLATBED" onClick={e => handleScroll(e, "FLATBED")}>{Flatbed}</a>
+                  <a className="dropdown-item" href="#STEP DECK" onClick={e => handleScroll(e, "STEP DECK")}>{StepDeck}</a>
+                  <a className="dropdown-item" href="#POWER ONLY" onClick={e => handleScroll(e, "POWER ONLY")}>{PowerOnly}</a>
                 </div>
               </div>
             </NavItem>

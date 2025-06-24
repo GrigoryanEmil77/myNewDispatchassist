@@ -59,7 +59,7 @@ const FootherData = ({contact=[],service=[],truckTypes=[], navbars=[],follow=[]}
               alt="Brand Logo"
               id="brandLogo"
               className="brand-logo"
-              width="160"
+              width="165"
               style={{ WebkitUserDrag: "none", userSelect: "none" }}
             />
           )}

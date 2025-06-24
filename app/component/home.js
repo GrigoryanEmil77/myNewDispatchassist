@@ -1,43 +1,46 @@
 "use client";
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef,} from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import './home.css';
 
 const HomeData= ({ home = [], video = [],  }) => {
 
-  const [errMsg, setErrMsg] = useState(null);
-
   const previewVideoRef = useRef(null);
   const backgroundVideoRef = useRef(null);
 
-  useEffect(() => {
-    const video = previewVideoRef.current;
-    if (!video) return;
+useEffect(() => {
+  const video = previewVideoRef.current;
+  if (!video) return;
 
-    const handleLoadedMetadata = () => {
-      video.currentTime = 1;
+  const handleLoadedMetadata = () => {
+    video.currentTime = 1;
 
-      video.play().catch(error => {
-        console.error("Preview autoplay failed:", error);
-      });
+    video.play().catch(error => {
+      console.error("Preview autoplay failed:", error);
+    });
 
-      const stopVideo = () => {
-        if (video.currentTime >= 2) {
-          video.pause();
-          video.removeEventListener("timeupdate", stopVideo);
-        }
-      };
-
-      video.addEventListener("timeupdate", stopVideo);
+    const stopVideo = () => {
+      if (video.currentTime >= 2) {
+        video.pause();
+        video.removeEventListener("timeupdate", stopVideo);
+      }
     };
 
+    video.addEventListener("timeupdate", stopVideo);
+  };
+
+  if (video.readyState >= 1) {
+
+    handleLoadedMetadata();
+  } else {
     video.addEventListener("loadedmetadata", handleLoadedMetadata);
-    return () => {
-      video.removeEventListener("loadedmetadata", handleLoadedMetadata);
-    };
-  }, []);
+  }
 
+  return () => {
+    video.removeEventListener("loadedmetadata", handleLoadedMetadata);
+  };
+}, []);
 
   useEffect(() => {
     const video = backgroundVideoRef.current;

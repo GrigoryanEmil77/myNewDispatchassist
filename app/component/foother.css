@@ -1,7 +1,7 @@
 
   .brand-logo{
-    padding-left: 20px;
-    width: 160px;
+    padding-left: 32px;
+    width: 165px;
     height: auto;
     transform: scale(1.5); 
     transition: transform 0.7s ease;
