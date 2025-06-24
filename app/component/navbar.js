@@ -75,7 +75,10 @@ const MyNavbar = ({ navbars = [],service = [], truckTypes = []}) => {
                   {Booking.split(" || ").map((part, i) => <React.Fragment key={i}>{part}<br /></React.Fragment>)}
                 </a>
                 <a className="dropdown-item" href="#BROKER SETUP" onClick={e => handleScroll(e, "BROKER SETUP")}>{BrokerSetup}</a>
-                <a className="dropdown-item" href="#DETENTION LAYOVER TONU" onClick={e => handleScroll(e, "DETENTION LAYOVER TONU")}>{Detention}</a>
+               
+                <a className="dropdown-item" href="#DETENTION LAYOVER TONU" onClick={handleOffcanvasToggle}>
+      {Detention.split(" || ").join(" ")}
+    </a>
                 <a className="dropdown-item" href="#INVOICING" onClick={e => handleScroll(e, "INVOICING")}>{Invoicing}</a>      
                 <a className="dropdown-item" href="#FACTORING & INSURANCE ASSISTANCE" onClick={e => handleScroll(e, "FACTORING & INSURANCE ASSISTANCE")}>
                   {Factoring.split(" || ").map((part, i) => <React.Fragment key={i}>{part}<br /></React.Fragment>)}
