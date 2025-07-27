@@ -1,4 +1,7 @@
- import { getTruckStop } from '@/_actions/truckStopAction';
+export const dynamic = "force-dynamic"; 
+
+
+import { getTruckStop } from '@/_actions/truckStopAction';
 import TruckStopClient from './truckstop'
 
 export default async function TruckStopServer() {

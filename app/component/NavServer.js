@@ -1,3 +1,6 @@
+export const dynamic = "force-dynamic"; 
+
+
 import { getNavbarData } from "@/_actions/navbarAction";
 import { getServicesType } from "@/_actions/servicesAction";
 import { getTrucktype } from "@/_actions/truckAction";

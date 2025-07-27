@@ -1,4 +1,7 @@
- import { getTrucktype } from '@/_actions/truckAction';
+export const dynamic = "force-dynamic"; 
+
+
+import { getTrucktype } from '@/_actions/truckAction';
 import TruckType from './trucktype';
 
 export default async function TruckTypeServer() {

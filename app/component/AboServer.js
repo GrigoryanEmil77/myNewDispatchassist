@@ -1,3 +1,6 @@
+export const dynamic = "force-dynamic"; 
+
+
 import { getPosts } from '@/_actions/postAction';
 import AboutData from './about';
 
