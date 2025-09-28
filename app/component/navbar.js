@@ -7,7 +7,6 @@ import { Button, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink, Nav } fro
 
 const MyNavbar = ({ navbars = [],service = [], truckTypes = []}) => {
 
-
   const [isOffcanvasOpen, setOffcanvasOpen] = useState(false);
   const [isServicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const [isTruckTypesDropdownOpen, setTruckTypesDropdownOpen] = useState(false);
@@ -26,21 +25,34 @@ const MyNavbar = ({ navbars = [],service = [], truckTypes = []}) => {
   const toggleServicesDropdown = () => setServicesDropdownOpen(prev => !prev);
   const toggleTruckTypesDropdown = () => setTruckTypesDropdownOpen(prev => !prev);
   const handleOffcanvasToggle = () => setOffcanvasOpen(prev => !prev);
+const {
+  home = "", about = "", services = "", trucktypes = "",
+  testimonials = "", faqs = "", contact = "", setup = "", picture = ""
+} = navbars[0] || {};
+
+const {
+  LoadSearch = "", Booking = "", BrokerSetup = "", Detention = "",
+  Invoicing = "", Factoring = "", Support = ""
+} = service[0] || {};
+
+const {
+  DryVan = "", Reefer = "", BoxTruck = "", Flatbed = "", StepDeck = "", PowerOnly = ""
+} = truckTypes[0] || {};
 
 
 
-  const {
-    home = "", about = "", services = "", trucktypes = "",
-    testimonials = "", faqs = "", contact = "", setup = "", picture = ""
-  } = navbars[0] || {};
+  // const {
+  //   home = "", about = "", services = "", trucktypes = "",
+  //   testimonials = "", faqs = "", contact = "", setup = "", picture = ""
+  // } = navbars[0] || {};
 
-  const {
-    LoadSearch = "", Booking = "", BrokerSetup = "", Detention = "",
-    Invoicing = "", Factoring = "", Support = ""
-  } = service[0] || {};
+  // const {
+  //   LoadSearch = "", Booking = "", BrokerSetup = "", Detention = "",
+  //   Invoicing = "", Factoring = "", Support = ""
+  // } = service[0] || {};
 
-  const {DryVan="",Reefer="", BoxTruck="",Flatbed="", StepDeck="",PowerOnly="",}=
-      truckTypes.length > 0 ? truckTypes[0] : {};
+  // const {DryVan="",Reefer="", BoxTruck="",Flatbed="", StepDeck="",PowerOnly="",}=
+  //     truckTypes.length > 0 ? truckTypes[0] : {};
 
   return (
     <Navbar className="navbar navbar-expand-lg fixed-top">
