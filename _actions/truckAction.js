@@ -1,6 +1,6 @@
 "use server";
-import connectDB from "@/config/database";
-import TruckModel from "@/models/truckModel";
+import connectDB from "../config/database";
+import TruckModel from "../models/truckModel";
 
 export async function getTrucktype() {
   try {

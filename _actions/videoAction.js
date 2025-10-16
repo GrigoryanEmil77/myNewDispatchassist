@@ -1,7 +1,7 @@
 "use server";
 
-import connectDB from "@/config/database";
-import VideoTypesAllModel from "@/models/videoModel";
+import connectDB from "../config/database";
+import VideoTypesAllModel from "../models/videoModel";
 
 export async function getVideo() {
   try {

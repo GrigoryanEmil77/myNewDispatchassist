@@ -1,6 +1,5 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { getQuestions } from "@/_actions/faqsAction";
 import "./faqs.css";
 import AOS from "aos";
 import "aos/dist/aos.css";

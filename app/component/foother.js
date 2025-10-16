@@ -1,14 +1,12 @@
 "use client";
-import React, { useEffect} from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap-icons/font/bootstrap-icons.css";
-import "./foother.css";
+import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
+ import "./foother.css";
 
-
-const FootherData = ({contact=[],service=[],truckTypes=[], navbars=[],follow=[]}) => {
-
+const FootherData = ({ contact = [], service = [], truckTypes = [], navbars = [], follow = [] }) => {
   useEffect(() => {
     AOS.init({ once: true, duration: 1200 });
     return () => AOS.refreshHard();
@@ -48,7 +46,7 @@ const FootherData = ({contact=[],service=[],truckTypes=[], navbars=[],follow=[]}
 
   const { trucktypes = "" } = navbars[0] || {};
 
-  return (
+   return (
     <footer className="text-white mt-7 pb-6 w-100 elements">
       <div className="container text-md-left elements">
      

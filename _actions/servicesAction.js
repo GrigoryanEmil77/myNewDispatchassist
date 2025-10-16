@@ -1,6 +1,6 @@
 "use server";
-import connectDB from "@/config/database";
-import ServicesModel from "@/models/servicesModel";
+import connectDB from "../config/database";
+import ServicesModel from "../models/servicesModel";
 
 
 export async function getServicesType() {

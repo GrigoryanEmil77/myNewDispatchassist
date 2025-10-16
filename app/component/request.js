@@ -1,17 +1,14 @@
 "use client";
 import React, { useEffect, useState } from 'react';
-import { getRequest } from '@/_actions/requestAction';
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap-icons/font/bootstrap-icons.css";
-import './request.css';
+import { Button } from 'reactstrap';
 import emailjs from 'emailjs-com';
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { Button } from 'reactstrap';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
+import './request.css';
 
-
-const RequestData = ({request = []}) => {
-
+const RequestData = ({ request = [] }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -20,85 +17,66 @@ const RequestData = ({request = []}) => {
     message: ''
   });
   const [isSending, setIsSending] = useState(false);
-        
+
   useEffect(() => {
     AOS.init({ once: true, duration: 1200 });
-  
-    return () => {
-      AOS.refreshHard(); 
-    };
+     emailjs.init("tSr3jHOvVSSg1jkfL");
+
   }, []);
-  
 
-useEffect(() => {
-  emailjs.init("tSr3jHOvVSSg1jkfL");
+  const { titlefirst = "", titlesecond = "" } = request.length > 0 ? request[0] : {};
 
-}, []);
-
-const { titlefirst = "", titlesecond = "" } = request.length > 0 ? request[0] : {};
-
-const handleChange = (e) => {
-  const { name, value } = e.target;
-  setFormData((prevState) => ({
-    ...prevState,
-    [name]: value,
-  }));
-};
-
-const showAlert = (message, type) => {
-  const alertPlaceholder = document.getElementById("alert-placeholder");
-  const alertDiv = document.createElement("div");
-  alertDiv.className = `alert alert-${type} alert-dismissible fade show`;
-  alertDiv.role = "alert";
-  alertDiv.textContent = message;
-
-  alertPlaceholder.appendChild(alertDiv);
-
-  setTimeout(() => {
-    alertDiv.classList.remove("show");
-    alertDiv.classList.add("hide");
-    setTimeout(() => {
-      alertDiv.remove();
-    }, 500); 
-  }, 3000);
-};
-
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  setIsSending(true);
-       const serviceID = "service_f2qot76";
-     const templateID = "template_v0h4dql";
-
-  const emailParams = {
-    from: formData.email,
-    replyto: formData.email,
-    name: formData.name,
-    email_id: formData.email,
-    number: formData.number,
-    type: formData.type,
-    message: formData.message,
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  emailjs
-    .send(serviceID, templateID, emailParams)
-    .then((response) => {
-      showAlert("Your message has been successfully sent.", "success");
+  const showAlert = (message, type) => {
+    const alertPlaceholder = document.getElementById("alert-placeholder");
+    const alertDiv = document.createElement("div");
+    alertDiv.className = `alert alert-${type} alert-dismissible fade show`;
+    alertDiv.role = "alert";
+    alertDiv.textContent = message;
 
-      setFormData({
-        name: "",
-        email: "",
-        number: "",
-        type: "",
-        message: "",
+    alertPlaceholder.appendChild(alertDiv);
+
+    setTimeout(() => {
+      alertDiv.remove();
+    }, 3000);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSending(true);
+
+     const serviceID = "service_l2oy55q"
+     const templateID = "template_v0h4dql";
+  
+
+    const emailParams = {
+      from: formData.email,
+      replyto: formData.email,
+      name: formData.name,
+      email_id: formData.email,
+      number: formData.number,
+      type: formData.type,
+      message: formData.message,
+    };
+
+    emailjs
+      .send(serviceID, templateID, emailParams)
+      .then(() => {
+        showAlert("Your message has been successfully sent.", "success");
+        setFormData({ name: "", email: "", number: "", type: "", message: "" });
+        setIsSending(false);
+      })
+      .catch((error) => {
+        console.error("Error sending email:", error);
+        showAlert(`Failed to send your message.`, "danger");
+        setIsSending(false);
       });
-      setIsSending(false);
-    })
-    .catch((error) => {
-      console.error("Error sending email:", error);
-      showAlert(`Failed to send your message. Error: ${error.text || "Unknown error"}`, "danger");
-      setIsSending(false);
-    });
-};
+  };
+
 
 return (
   <div className="container elements mt-5" id="SETUP">
@@ -201,7 +179,8 @@ return (
       </fieldset>
     </form>
   </div>
-);
+
+  );
 };
 
 export default RequestData;

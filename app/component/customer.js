@@ -1,38 +1,16 @@
 "use client";
+
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "./customer.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { getCustomer } from "@/_actions/customerAction";
 
-const CustomerData = () => {
-  const [customer, setCustomer] = useState([]);
-
+const CustomerData = ({ customer = [] }) => {
   useEffect(() => {
     import("bootstrap/dist/js/bootstrap.bundle.min.js");
-  }, []);
-
-  useEffect(() => {
     AOS.init({ once: true, duration: 1200 });
-  }, []);
-
-  useEffect(() => {
-    const fetchCustomer = async () => {
-      try {
-        const response = await getCustomer();
-        if (response.errMsg) {
-          console.error(response.errMsg);
-        } else {
-          setCustomer(response.data);
-        }
-      } catch (error) {
-        console.error("Error fetching customers:", error);
-      }
-    };
-
-    fetchCustomer();
   }, []);
 
   if (customer.length === 0) return null;
@@ -52,30 +30,18 @@ const CustomerData = () => {
   } = customer[0] || {};
 
   const reviews = [
-    {
-      name: customer1name,
-      text: customer1text,
-      picture: customer1picture,
-    },
-    {
-      name: customer2name,
-      text: customer2text,
-      picture: customer2picture,
-    },
-    {
-      name: customer3name,
-      text: customer3text,
-      picture: customer3picture,
-    },
+    { name: customer1name, text: customer1text, picture: customer1picture },
+    { name: customer2name, text: customer2text, picture: customer2picture },
+    { name: customer3name, text: customer3text, picture: customer3picture },
   ];
 
-  return (
+   return (
     <div className="container elements mt-3" id="Customer">
       <h2 className="text-center elements mt-5" data-aos="flip-up">
         {titlefirst} <span>{titlesecond}</span>
       </h2>
 
-      {/* Grid Layout */}
+  
       <div className="row custom mt-5 elements">
         {reviews.map((review, index) => (
           <div

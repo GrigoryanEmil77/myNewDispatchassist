@@ -1,7 +1,7 @@
 "use server";
 
-import connectDB from "@/config/database";
-import TruckTypesStopModel from "@/models/truckStopModel";
+import connectDB from "../config/database";
+import TruckTypesStopModel from "../models/truckStopModel";
 
 export async function getTruckStop() {
   try {

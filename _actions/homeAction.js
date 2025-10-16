@@ -1,7 +1,7 @@
 "use server"; 
 
-import connectDB from "@/config/database";
-import HomeModel from "@/models/homeModel";
+import connectDB from "../config/database";
+import HomeModel from "../models/homeModel";
 
 
 export async function getHome() {
@@ -17,7 +17,7 @@ export async function getHome() {
 
     return { data };
   } catch (error) {
-    console.error("❌ Error fetching data:", error.message);
+    console.error("Error fetching data:", error.message);
     return { errMsg: error.message };
   }
 }

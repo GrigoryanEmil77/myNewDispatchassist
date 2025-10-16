@@ -1,20 +1,17 @@
 "use server";
-import connectDB from "@/config/database";
-import FollowModel from "@/models/followModel";
 
-
+import connectDB from "../config/database"; 
+import FollowModel from "../models/followModel";
 
 export async function getFollow() {
   try {
     console.log("Connecting to MongoDB...");
-    await connectDB(); 
-
+    await connectDB();
 
     const rawData = await FollowModel.find();
-    
+    const data = JSON.parse(JSON.stringify(rawData));
 
-    const data= JSON.parse(JSON.stringify(rawData));
-    return {data };
+    return { data };
   } catch (error) {
     console.error("Error fetching data:", error.message);
     return { errMsg: error.message };

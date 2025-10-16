@@ -1,7 +1,7 @@
 "use server";
 
-import connectDB from "@/config/database";
-import NavbarModel from "@/models/navbarModel";
+import connectDB from "../config/database";
+import NavbarModel from "../models/navbarModel";
 
 export async function getNavbarData() {
   try {
@@ -18,5 +18,7 @@ export async function getNavbarData() {
     return { errMsg: error.message };
   }
 }
+
+
 
 
