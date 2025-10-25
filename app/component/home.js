@@ -107,9 +107,9 @@ useEffect(() => {
 
             <div className="col-md-6 empower align-self-center elements">
               <h2>
-                {titlesmall}<span className="thin"> {titlesmall1} </span>
+                {titlesmall}<span > {titlesmall1} </span>
                 <br />
-                <span>{titlesmall2}<span className="thin"> {titlesmall3} </span></span>
+                <span>{titlesmall2}<span > {titlesmall3} </span></span>
               </h2>
               <h2>{titlelarge}</h2>
               <p className="lead" style={{ minHeight: '80px' }}>{text}</p>
