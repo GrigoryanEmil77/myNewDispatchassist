@@ -1,8 +1,15 @@
 .container-fluid h2{
     color:#ea9d17;
     font-size: 40px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
-  
+    /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important; */
+    font-family: 
+    'Anton',         
+    Impact, 
+    Haettenschweiler, 
+    'Arial Narrow Bold', 
+    sans-serif !important;
+  font-weight: 400;  
+ 
   }
   .workik{
     display: none;
@@ -11,7 +18,15 @@
   .container-fluid span{
     color:#ea9d17;
     font-size: 40px;
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
+    /* font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important; */
+      font-family: 
+    'Anton',         
+    Impact, 
+    Haettenschweiler, 
+    'Arial Narrow Bold', 
+    sans-serif !important;
+  font-weight: 400;  
+ 
   }
   .container-fluid p{
     color: black;

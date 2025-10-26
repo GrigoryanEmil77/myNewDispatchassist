@@ -1,8 +1,15 @@
 .container.elements.shift-down span{
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
+    /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important; */
     color: white;
     font-size: 30px;
-
+  font-family: 
+    'Anton',         
+    Impact, 
+    Haettenschweiler, 
+    'Arial Narrow Bold', 
+    sans-serif !important;
+  font-weight: 400;  
+ 
   }
   .shift-down {
     position: relative;
@@ -58,9 +65,16 @@ user-select: none;
 .read-more-container h2{
   color:white;
   font-size: 40px;
-  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
-  font-weight: 500;
+  /* font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important; */
 
+  font-family: 
+    'Anton',         
+    Impact, 
+    Haettenschweiler, 
+    'Arial Narrow Bold', 
+    sans-serif !important;
+  font-weight: 400;  
+ 
 }
 .read-more-container h3{
   color: white;

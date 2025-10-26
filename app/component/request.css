@@ -1,8 +1,15 @@
 .container.mt-5 h2{
     color: black;
     font-size: 40px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
-  
+    /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important; */
+    font-family: 
+    'Anton',         
+    Impact, 
+    Haettenschweiler, 
+    'Arial Narrow Bold', 
+    sans-serif !important;
+  font-weight: 400;  
+ 
   }
 .form-group{
     border: 2px solid gray;
