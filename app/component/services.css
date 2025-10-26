@@ -1,14 +1,10 @@
 .container-fluid h2{
-    color:#ea9d17;
+     color:#ea9d17;
     font-size: 40px;
-    /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important; */
-    font-family: 
-    'Anton',         
-    Impact, 
-    Haettenschweiler, 
-    'Arial Narrow Bold', 
-    sans-serif !important;
-  font-weight: 400;  
+    font-family: 'Anton', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
+    font-weight: 500 !important; 
+    -webkit-font-smoothing: antialiased !important; 
+    -moz-osx-font-smoothing: grayscale !important;  
  
   }
   .workik{
@@ -16,16 +12,12 @@
 
   }
   .container-fluid span{
-    color:#ea9d17;
+       color:#ea9d17;
     font-size: 40px;
-    /* font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important; */
-      font-family: 
-    'Anton',         
-    Impact, 
-    Haettenschweiler, 
-    'Arial Narrow Bold', 
-    sans-serif !important;
-  font-weight: 400;  
+    font-family: 'Anton', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
+    font-weight: 500 !important; 
+    -webkit-font-smoothing: antialiased !important; 
+    -moz-osx-font-smoothing: grayscale !important;  
  
   }
   .container-fluid p{

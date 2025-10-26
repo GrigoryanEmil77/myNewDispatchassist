@@ -2,28 +2,19 @@
 .container.elements.mt-3 h2{
     color:black;
     font-size: 40px;
-    /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important; */
-    font-family: 
-    'Anton',         
-    Impact, 
-    Haettenschweiler, 
-    'Arial Narrow Bold', 
-    sans-serif !important;
-  font-weight: 400;  
+    font-family: 'Anton', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
+    font-weight: 500 !important; 
+    -webkit-font-smoothing: antialiased !important; 
+    -moz-osx-font-smoothing: grayscale !important;   
  
   }
   .container.elements.mt-3 span{
     color:black;
     font-size: 40px;
-    /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important; */
-    font-family: 
-    'Anton',         
-    Impact, 
-    Haettenschweiler, 
-    'Arial Narrow Bold', 
-    sans-serif !important;
-  font-weight: 400;  
- 
+    font-family: 'Anton', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
+    font-weight: 500 !important; 
+    -webkit-font-smoothing: antialiased !important; 
+    -moz-osx-font-smoothing: grayscale !important;    
   }
   .review-card-body {
     height: 100%; 
