@@ -1,16 +1,11 @@
 .container-fluid h2{
-     color:#ea9d17;
+      color: #ea9d17;
     font-size: 40px;
     font-family: 'Anton', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
     font-weight: 500 !important; 
-    -webkit-font-smoothing: antialiased !important; 
-    -moz-osx-font-smoothing: grayscale !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    text-shadow:
-       0.3px 0 #ea9d17,
-       -0.3px 0 #ea9d17,
-        0 0.3px #ea9d17,
-        0 -0.3px #ea9d17,
  
   }
   .workik{
@@ -18,19 +13,13 @@
 
   }
   .container-fluid span{
-       color:#ea9d17;
+   color: #ea9d17;
     font-size: 40px;
     font-family: 'Anton', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
     font-weight: 500 !important; 
-    -webkit-font-smoothing: antialiased !important; 
-    -moz-osx-font-smoothing: grayscale !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    text-shadow:
-        0.3px 0 #ea9d17,
-       -0.3px 0 #ea9d17,
-        0 0.3px #ea9d17,
-        0 -0.3px #ea9d17,
- 
   }
   .container-fluid p{
     color: black;
@@ -179,5 +168,11 @@
           }
     
     
-          
+@media all and (-webkit-min-device-pixel-ratio:0) and (pointer:coarse) {
+.container-fluid h2,
+.container-fluid  span {
+        font-weight: 700 !important;
+    }
+} 
+
       

@@ -3,15 +3,9 @@
     font-size: 40px;
     font-family: 'Anton', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
     font-weight: 500 !important; 
-    -webkit-font-smoothing: antialiased !important; 
-    -moz-osx-font-smoothing: grayscale !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    text-shadow:
-          0.3px 0 white,
-       -0.3px 0 white,
-        0 0.3px white,
-        0 -0.3px white; 
- 
   }
   .shift-down {
     position: relative;
@@ -66,18 +60,12 @@ user-select: none;
 
 .read-more-container h2{
     color:white;
-
     font-size: 40px;
     font-family: 'Anton', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
     font-weight: 500 !important; 
-    -webkit-font-smoothing: antialiased !important; 
-    -moz-osx-font-smoothing: grayscale !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    text-shadow:
-        0.3px 0 white,
-       -0.3px 0 white,
-        0 0.3px white,
-        0 -0.3px white; 
  
 }
 .read-more-container h3{
@@ -103,3 +91,11 @@ user-select: none;
   display: inline;
   
 }
+@media all and (-webkit-min-device-pixel-ratio:0) and (pointer:coarse) {
+.container.elements.shift-down span
+.read-more-container h2{
+        font-weight: 700 !important;
+    }
+} 
+
+      
