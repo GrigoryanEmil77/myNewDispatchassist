@@ -41,18 +41,7 @@ const {
 
 
 
-  // const {
-  //   home = "", about = "", services = "", trucktypes = "",
-  //   testimonials = "", faqs = "", contact = "", setup = "", picture = ""
-  // } = navbars[0] || {};
 
-  // const {
-  //   LoadSearch = "", Booking = "", BrokerSetup = "", Detention = "",
-  //   Invoicing = "", Factoring = "", Support = ""
-  // } = service[0] || {};
-
-  // const {DryVan="",Reefer="", BoxTruck="",Flatbed="", StepDeck="",PowerOnly="",}=
-  //     truckTypes.length > 0 ? truckTypes[0] : {};
 
   return (
     <Navbar className="navbar navbar-expand-lg fixed-top">

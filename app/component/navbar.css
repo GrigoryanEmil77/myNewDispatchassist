@@ -138,37 +138,7 @@
   
   
   @media (max-width: 938px) {
-    .col-md-6.empower h2{
-      font-size: 35px;  
-      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
-      font-weight: 800;
-    }
-    .container-fluid-video {
-      margin-top: 10%;
-    }
-  .container.elements.shift-down span{
-      font-size: 35px;
-      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
-      font-weight: 800;
-    }
-  .col-md-6.empower h2:nth-child(2){
-      font-size: 47px;  
-      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
-      font-weight: 800;
-  }   
-  .thin{
-    font-size: 47px;
-    font-family:initial !important;
-    
-   }
-
-  
-   .col-md-6.empower p{
-    font-weight: 600;
-    color:white; 
-    font-size: 16px;
-   
-  }
+ 
   .row.justify-content-center.faq .card {
     margin: 0;
     padding: 0;
