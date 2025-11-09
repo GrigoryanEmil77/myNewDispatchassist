@@ -1,6 +1,6 @@
 .container-fluid h2{
       color: #ea9d17;
-  font-size: 40px;
+  font-size: 35px;
   font-family: var(--font-oswald), sans-serif !important;
   font-weight: 700 !important;
   -webkit-font-smoothing: antialiased !important;
@@ -13,7 +13,7 @@
   }
   .container-fluid span{
       color: #ea9d17;
-  font-size: 40px;
+  font-size: 35px;
   font-family: var(--font-oswald), sans-serif !important;
   font-weight: 700 !important;
   -webkit-font-smoothing: antialiased !important;

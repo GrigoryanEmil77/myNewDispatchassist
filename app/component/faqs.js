@@ -47,7 +47,6 @@ const Faq = ({questionsData = []}) => {
       <h2 className="text-center mb-4 elements" data-aos="flip-up">
         {titlefirst} <span>{titlesecond}</span>
       </h2>
-
       <div className="w-layout-grid faq_list">
         {faqs.map(({ id, question, answer }) => (
           <div key={id} className="faq_accordion" data-aos="fade-right">

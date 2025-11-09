@@ -1,14 +1,8 @@
 
-/* .container.py-5 span,
-.container.py-5 h2 {
-       color: black;
-    font-size: 40px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
-} */
 .container.py-5 span,
 .container.py-5 h2 {
   color: black;
-  font-size: 40px;
+  font-size: 35px;
 
   font-family: var(--font-oswald), sans-serif !important;
   font-weight: 700 !important;

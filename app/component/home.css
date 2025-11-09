@@ -116,14 +116,7 @@
         height: auto;
       }
     }  
-  /* @media (max-width: 938px) {
-      
-  .thin{
-    font-size: 47px;
-    font-family:initial !important;
-    
-   }
-  }  */
+ 
       @media (max-width: 938px) {
     .col-md-6.empower h2{
       font-size: 35px;  
