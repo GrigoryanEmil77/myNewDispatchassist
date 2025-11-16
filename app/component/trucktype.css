@@ -12,24 +12,26 @@
   color: white;
   font-weight: bold;
 }
-
 .read-more-btn {
-    background-color: white;
-    border: none;
-    border-radius: 5px;
-    min-width: 115px;           
-    height: 32px;
-    font-size: 14px;
-    color: black;
-    display: inline-flex;       
-    align-items: center;
-    justify-content: center;
-    white-space: nowrap;      
-    overflow: visible;          
-    padding: 0 10px;           
-    box-sizing: border-box;
-    cursor: pointer;
+  display: inline-flex;        
+  align-items: center;          
+  justify-content: center;     
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  height: 32px;
+  font-size: 14px;
+  color: black;
+  padding: 0 15px;
+  cursor: pointer;
+  white-space: nowrap;
+  box-sizing: border-box;
+  margin-top: 8px;
+  transition: background 0.2s, color 0.2s;
+  line-height: normal;         
 }
+
+
 
 
   .shift-down {
