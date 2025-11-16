@@ -62,4 +62,21 @@
     font-size: 24px; 
     color:black; 
   }
-  
+
+
+ .faq-answer-txt {
+          white-space: normal;
+    word-wrap: break-word;      
+    word-break: keep-all; 
+    color: #333 !important;
+    -webkit-text-fill-color: #333 !important;
+    text-decoration: none !important;
+    -webkit-text-decoration: none !important;
+    line-height: 1,5;
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: break-word;
+    display: block;
+    -webkit-user-modify: read-write !important;
+} 
+
