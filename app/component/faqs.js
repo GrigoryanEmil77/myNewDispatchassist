@@ -62,12 +62,10 @@ const Faq = ({questionsData = []}) => {
             {activeFAQs[id] && (
               <div className="faq4_answer">
       
-             <p
+<p
   className="faq-answer-txt"
   dangerouslySetInnerHTML={{
-    __html: answer.replace(/\d+/g, (num) =>
-      num.split("").join("&#8203;")
-    )
+    __html: answer.replace(/(\d)/g, "$1\u200B")
   }}
 />
 
