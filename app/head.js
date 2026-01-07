@@ -10,6 +10,7 @@ export default function Head() {
         <meta name="format-detection" content="telephone=no" />
         <link rel="canonical" href="https://dispatch-assist.com/" />
 
+      <link rel="manifest" href="/manifest.json" />
 
       </>
     );
