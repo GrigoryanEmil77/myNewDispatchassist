@@ -1,20 +1,8 @@
 {
   "name": "Dispatch Assist",
-  "short_name": "Dispatch",
+  "short_name": "Dispatch Assist",
   "description": "Dispatch Assist is a platform for truck drivers and companies! With our 24/7 service, we are clearly committed to supporting owner-operators and businesses of all sizes. We focus on finding the best freight and possible high rates which will maximize earnings, especially in such a challenging industry...",
   "icons": [
-   {
-  "src": "/favicon-16x16.png",
-  "sizes": "16x16",
-  "type": "image/png",
-  "purpose": "any"
-   },
-   {
-  "src": "/favicon-32x32.png",
-  "sizes": "32x32",
-  "type": "image/png",
-  "purpose": "any"
-    },
     {
       "src": "/web-app-manifest-192x192.png",
       "sizes": "192x192",
@@ -28,7 +16,7 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#a249a2",
-  "background_color": "#a249a2",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
   "display": "standalone"
 }

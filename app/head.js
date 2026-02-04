@@ -1,7 +1,7 @@
 export default function Head() {
     return (
       <>
-        <title>Empower Your Logistic Business with Dispatch Assist</title>
+        <title>Dispatch Assist</title>
         <meta
           name="description"
           content="Dispatch Assist is a platform for truck drivers and companies! With our 24/7 service, we are clearly committed to supporting owner-operators and businesses of all sizes. We focus on finding the best freight and possible high rates which will maximize earnings, especially in such a challenging industry..."     
@@ -11,7 +11,9 @@ export default function Head() {
         <link rel="canonical" href="https://dispatch-assist.com/" />
 
       <link rel="manifest" href="/manifest.json" />
-
+       
+        <meta property="og:title" content="Dispatch Assist" />
+        <meta property="og:site_name" content="Dispatch Assist" />
       </>
     );
   }
