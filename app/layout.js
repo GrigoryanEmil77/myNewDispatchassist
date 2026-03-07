@@ -1,5 +1,6 @@
+
 import "./globals.css";
-import { Inter, Anton } from "next/font/google";
+import { Inter } from "next/font/google";
 import { Oswald } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -11,41 +12,59 @@ const oswald = Oswald({
   variable: "--font-oswald",
 });
 
-
-
 export const metadata = {
-  title:"Empower Your Logistic Business with Dispatch Assist",
-  description: "Dispatch Assist is a platform for truck drivers and companies! With our 24/7 service, we are clearly committed to supporting owner-operators and businesses of all sizes. We focus on finding the best freight and possible high rates which will maximize earnings, especially in such a challenging industry...",
+  metadataBase: new URL("https://www.dispatch-assist.com"),
 
- manifest: "/site.webmanifest",
+  title: {
+    default: "Empower Your Logistic Business with Dispatch Assist",
+    template: "%s | Dispatch Assist"
+  },
 
-  icons: {
-    icon: [
-      { url: "/favicon.ico" },
-      { url:"/apple-icon.png"},
-      { url:"/logobrowser.png"},
-      { url:"/android-chrome-192x192.png"},
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" }
-    ],
-    apple: "/apple-touch-icon.png",
-    other: [
-      {
-        rel: "maskable-icon",
-        url: "/maskable-icon.png",
-        sizes: "512x512",
-        type: "image/png"
-      }
-    ]
-  }
+  description:"Dispatch Assist is a platform for truck drivers and companies! With our 24/7 service, we are clearly committed to supporting owner-operators and businesses of all sizes. We focus on finding the best freight and possible high rates which will maximize earnings, especially in such a challenging industry...",
+
+  applicationName: "Dispatch Assist",
+
+  manifest: "/site.webmanifest",
+
+  openGraph: {
+    title: "Dispatch Assist",
+    siteName: "Dispatch Assist",
+    url: "https://www.dispatch-assist.com",
+    type: "website",
+   },
+
+icons: {
+  icon: [
+    { url: "/favicon.ico" },
+    { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+  ],
+  apple: [
+    { url: "/apple-touch-icon.png", sizes: "180x180" }
+  ]
+},
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">  
-    
-            <body className={`${inter.className} ${oswald.variable}`}>{children}</body>
+    <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Dispatch Assist",
+              url: "https://www.dispatch-assist.com",
+              logo: "https://www.dispatch-assist.com/android-chrome-192x192.png",
+            }),
+          }}
+        />
+      </head>
 
+      <body className={`${inter.className} ${oswald.variable}`}>
+        {children}
+      </body>
     </html>
   );
 }
