@@ -1,6 +1,6 @@
 {
- "name": "Dispatch Assist",
- "short_name": "Dispatch Assist",
+  "name": "MyWebSite",
+  "short_name": "MySite",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",

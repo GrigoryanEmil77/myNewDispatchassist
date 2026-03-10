@@ -35,8 +35,11 @@ export const metadata = {
 
 icons: {
   icon: [
-    { url: "/favicon.ico" },
-    { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+    { url: "/favicon_48.png",sizes: "48x48", type: "image/png"  },
+    { url: "/favicon_32.png",sizes: "32x32", type: "image/png"  },
+    { url: "/favicon_180(1).png",sizes: "180x180", type: "image/png"  },
+    { url: "/favicon_512.png", sizes: "512x512", type: "image/png" },
+   
   ],
   apple: [
     { url: "/apple-touch-icon.png", sizes: "180x180" }
@@ -56,7 +59,7 @@ export default function RootLayout({ children }) {
               "@type": "Organization",
               name: "Dispatch Assist",
               url: "https://www.dispatch-assist.com",
-              logo: "https://www.dispatch-assist.com/android-chrome-192x192.png",
+              logo: "https://www.dispatch-assist.com/favicon_180(1).png",
             }),
           }}
         />
