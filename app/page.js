@@ -9,7 +9,6 @@ import CustomerServer from "./component/CustomServer";
 import QuestionServer from "./component/FaqServer";
 import RequestServer from "./component/ReqServer";
 import FootherServer from "./component/FootServer";
-import MyNavbar from "./component/navbar";
 
 export default function Home() {
   return (
