@@ -35,11 +35,11 @@ export const metadata = {
 
 icons: {
   icon: [
-    { url: "/favicon_48.png",sizes: "48x48", type: "image/png"  },
-    { url: "/favicon_64.png",sizes: "64x64", type: "image/png"  },
-    { url: "/favicon_180.png",sizes: "180x180", type: "image/png"  },
-    { url: "/favicon_512.png", sizes: "512x512", type: "image/png" },
-   
+
+    { url: "/favicon_pro_180.png",sizes: "180x180", type: "image/png"  },
+    { url: "/favicon_pro_512.png", sizes: "512x512", type: "image/png" },
+    { url: "/favicon_pro_64.png",sizes: "64x64", type: "image/png"  },
+     { url: "/favicon_pro.ico", },
   ],
   apple: [
     { url: "/apple-touch-icon.png", sizes: "180x180" }
@@ -59,7 +59,7 @@ export default function RootLayout({ children }) {
               "@type": "Organization",
               name: "Dispatch Assist",
               url: "https://www.dispatch-assist.com",
-              logo: "https://www.dispatch-assist.com/favicon.ico",
+              logo: "https://www.dispatch-assist.com/favicon_pro_180.png",
             }),
           }}
         />

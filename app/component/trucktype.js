@@ -73,12 +73,12 @@ const TruckType = ({ truckTypes = [] }) => {
     
     <section className="full-width-section mt-5  elements">
         <div className="read-more-container elements">
-            <h2 className="text trucks"  data-aos="flip-up" >{titleTruck}</h2>
+            <h2 className="text trucks"  data-aos="fade-up" >{titleTruck}</h2>
             <div className="row mt-5 elements" >
                 <div className="col-md-4 mt-2 elements" id="DRY VAN">
                 <img src={DryVanpicture ||null}  data-aos="fade-right" className="truck" alt='pic1'/> 
-                    <h3 className="mt-4" data-aos="fade-up">{DryVan}</h3>
-                         <p>
+                    <h3 className="mt-4" data-aos="fade-right">{DryVan}</h3>
+                         <p data-aos="fade-right">
         {isReadMore ? `${DryVantext.slice(0, 100)}` : DryVantext} 
         <span
   className="read-more-text"
@@ -95,12 +95,12 @@ const TruckType = ({ truckTypes = [] }) => {
 </span>
 
       </p>
-                        <button type="button" data-aos="fade-up" className="read-more-btn">Read More</button>
+                        <button type="button" data-aos="fade-right" className="read-more-btn">Read More</button>
                 </div>
                 <div className="col-md-4 mt-2 elements" id="REEFER" >
                 <img src={Reeferpicture ||null}  data-aos="fade-right" className="truck" alt='pic2'/> 
-                    <h3 className="mt-4" data-aos="fade-up">{Reefer}</h3>
-                    <p
+                    <h3 className="mt-4"data-aos="fade-right">{Reefer}</h3>
+                    <p data-aos="fade-right"
                     className='reefert'>
         {isReadMore ? `${Reefertext.slice(0, 100)}` : Reefertext} 
         <span
@@ -118,13 +118,13 @@ const TruckType = ({ truckTypes = [] }) => {
 </span>
 
       </p>
-                        <button type="button" data-aos="fade-up" className="read-more-btn">Read More</button>
+                        <button type="button" data-aos="fade-right" className="read-more-btn">Read More</button>
                 </div>
                 <div className="col-md-4 mt-2 elements" id="BOX TRUCK">
                 <img src={BoxTruckpicture ||null}  data-aos="fade-right" className="truck" alt='pic3'/> 
-                    <h3 className="mt-4" data-aos="fade-up">{BoxTruck}</h3>
+                    <h3 className="mt-4" data-aos="fade-right">{BoxTruck}</h3>
              
-                    <p>
+                    <p data-aos="fade-right">
         {isReadMore ? `${BoxTrucktext.slice(0, 97)}` : BoxTrucktext} 
         <span
   className="read-more-text"
@@ -141,12 +141,12 @@ const TruckType = ({ truckTypes = [] }) => {
 </span>
 
       </p>
-                          <button type="button" data-aos="fade-up" className="read-more-btn">Read More</button>
+                          <button type="button" data-aos="fade-right" className="read-more-btn">Read More</button>
                 </div>
                 <div className="col-md-4 mt-3 elements" id="FLATBED">
                 <img src={Flatbedpicture ||null}  data-aos="fade-right" className="truck" alt='pic4'/> 
-                    <h3 className="mt-4" data-aos="fade-up">{Flatbed}</h3>
-                    <p className='flat'>
+                    <h3 className="mt-4" data-aos="fade-right">{Flatbed}</h3>
+                    <p className='flat' data-aos="fade-right">
         {isReadMore ? `${Flatbedtext.slice(0, 100)}` : Flatbedtext} 
         <span
   className="read-more-text"
@@ -163,12 +163,12 @@ const TruckType = ({ truckTypes = [] }) => {
 </span>
 
       </p>
-                    <button type="button" data-aos="fade-up" className="read-more-btn">Read More</button>
+                    <button type="button" data-aos="fade-right" className="read-more-btn">Read More</button>
                 </div>
                 <div className="col-md-4 mt-3 elements" id="STEP DECK">
                 <img src={StepDeckpicture ||null}  data-aos="fade-right" className="truck" alt='pic5' /> 
-                    <h3 className="mt-4" data-aos="fade-up">{StepDeck}</h3>
-                    <p className='stepdeck'>
+                    <h3 className="mt-4" data-aos="fade-right">{StepDeck}</h3>
+                    <p className='stepdeck' data-aos="fade-right">
         {isReadMore ? `${StepDecktext.slice(0, 90)}` : StepDecktext} 
         <span
   className="read-more-text"
@@ -184,12 +184,12 @@ const TruckType = ({ truckTypes = [] }) => {
   {isReadMore ? StepDecktext.slice(90, 500) : 'Read Less'}
 </span>
       </p>
-                <button type="button" data-aos="fade-up" className="read-more-btn">Read More</button>
+                <button type="button" data-aos="fade-right" className="read-more-btn">Read More</button>
                 </div>
                 <div className="col-md-4 mt-3 elements" id="POWER ONLY">
                 <img src={PowerOnlypicture ||null}  data-aos="fade-right" className="truck"  alt='pic6'/> 
-                    <h3 className="mt-4" data-aos="fade-up">{PowerOnly}</h3>
-                    <p>
+                    <h3 className="mt-4" data-aos="fade-right">{PowerOnly}</h3>
+                    <p data-aos="fade-right">
         {isReadMore ? `${PowerOnlytext.slice(0, 98)}` : PowerOnlytext} 
         <span
   className="read-more-text"
@@ -205,7 +205,7 @@ const TruckType = ({ truckTypes = [] }) => {
   {isReadMore ? PowerOnlytext.slice(98, 500) : 'Read Less'}
 </span>
       </p>
-                    <button type="button" data-aos="fade-up" className="read-more-btn">Read More</button>
+                    <button type="button" data-aos="fade-right" className="read-more-btn">Read More</button>
                 </div>   
         </div>
       </div>

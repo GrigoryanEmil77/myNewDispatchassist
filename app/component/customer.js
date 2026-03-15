@@ -37,7 +37,7 @@ const CustomerData = ({ customer = [] }) => {
 
    return (
     <div className="container elements mt-3" id="Customer">
-      <h2 className="text-center elements mt-5" data-aos="flip-up">
+      <h2 className="text-center elements mt-5" data-aos="fade-up">
         {titlefirst} <span>{titlesecond}</span>
       </h2>
 
