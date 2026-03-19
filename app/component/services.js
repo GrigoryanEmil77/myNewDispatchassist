@@ -47,7 +47,7 @@ const ServicesData =({ service = []}) => {
 
   return (
     <div className="container-fluid services elements mt-3">
-      <h2 className="text text-center elements" data-aos="fade-up">
+      <h2 className="text text-center elements" data-aos="flip-up">
         {titlefirst} <span>{titlesecond}</span>
       </h2>
 

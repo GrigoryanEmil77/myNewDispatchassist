@@ -82,7 +82,7 @@ const AboutData = ({ abouts = [] }) => {
   return (
     <section className="container py-5" id="About Us">
       <div className="text-center mb-4">
-        <h2 className="text elements" data-aos="fade-up">
+        <h2 className="text elements" data-aos="flip-up">
           {titlefirst} <span>{titlesecond}</span>
         </h2>
         <p className="lead mt-3" data-aos="fade-up" style={{ minHeight: "80px" }}>

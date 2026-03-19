@@ -73,7 +73,7 @@ const TruckType = ({ truckTypes = [] }) => {
     
     <section className="full-width-section mt-5  elements">
         <div className="read-more-container elements">
-            <h2 className="text trucks"  data-aos="fade-up" >{titleTruck}</h2>
+            <h2 className="text trucks"  data-aos="flip-up" >{titleTruck}</h2>
             <div className="row mt-5 elements" >
                 <div className="col-md-4 mt-2 elements" id="DRY VAN">
                 <img src={DryVanpicture ||null}  data-aos="fade-right" className="truck" alt='pic1'/> 

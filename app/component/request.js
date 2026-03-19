@@ -82,7 +82,7 @@ return (
   <div className="container elements mt-5" id="SETUP">
     <form id="form" className="mt-3" onSubmit={handleSubmit}>
       <fieldset>
-        <h2 className="text-center elements" data-aos="fade-up">
+        <h2 className="text-center elements" data-aos="flip-up">
           {titlefirst} <span style={{ color: "black" }}>{titlesecond}</span>
         </h2>
         <div className="row justify-content-center mt-5 elements">

@@ -44,7 +44,7 @@ const Faq = ({questionsData = []}) => {
 
   return (
     <div className="container elements mt-5" id="FAQ">
-      <h2 className="text-center mb-4 elements" data-aos="fade-up">
+      <h2 data-aos="flip-up" className="text-center mb-4 elements" >
         {titlefirst} <span>{titlesecond}</span>
       </h2>
       <div className="w-layout-grid faq_list">
