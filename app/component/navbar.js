@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { Button, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink, Nav } from 'reactstrap';
 
+
 const MyNavbar = ({ navbars = [],service = [], truckTypes = []}) => {
 
   const [isOffcanvasOpen, setOffcanvasOpen] = useState(false);
@@ -25,20 +26,52 @@ const MyNavbar = ({ navbars = [],service = [], truckTypes = []}) => {
   const toggleServicesDropdown = () => setServicesDropdownOpen(prev => !prev);
   const toggleTruckTypesDropdown = () => setTruckTypesDropdownOpen(prev => !prev);
   const handleOffcanvasToggle = () => setOffcanvasOpen(prev => !prev);
-const {
-  home = "", about = "", services = "", trucktypes = "",
-  testimonials = "", faqs = "", contact = "", setup = "", picture = ""
-} = navbars[0] || {};
+// const {
+//   home = "", about = "", services = "", trucktypes = "",
+//   testimonials = "", faqs = "", contact = "", setup = "", picture = ""
+// } = navbars[0] || {};
 
-const {
-  LoadSearch = "", Booking = "", BrokerSetup = "", Detention = "",
-  Invoicing = "", Factoring = "", Support = ""
-} = service[0] || {};
+// const {
+//   LoadSearch = "", Booking = "", BrokerSetup = "", Detention = "",
+//   Invoicing = "", Factoring = "", Support = ""
+// } = service[0] || {};
 
-const {
-  DryVan = "", Reefer = "", BoxTruck = "", Flatbed = "", StepDeck = "", PowerOnly = ""
-} = truckTypes[0] || {};
+// const {
+//   DryVan = "", Reefer = "", BoxTruck = "", Flatbed = "", StepDeck = "", PowerOnly = ""
+// } = truckTypes[0] || {};
 
+  const {
+    home = "Home",
+    about = "About Us",
+    services = "Services",
+    trucktypes = "Truck Types",
+    testimonials = "Testimonials",
+    faqs = "FAQ",
+    contact = "Contact",
+    setup = "SETUP",
+    picture = "/logo1-1.jpg"
+  } = navbars[0] || {};
+
+  // Services fallback
+  const {
+    LoadSearch = "LOAD SEARCH FTL/LTL",
+    Booking = "RATE NEGOTIATION || BOOKING",
+    BrokerSetup = "BROKER SETUP",
+    Detention = "DETENTION || LAYOVER || TONU",
+    Invoicing = "INVOICING",
+    Factoring = "FACTORING || INSURANCE ASSISTANCE",
+    Support = "24/7 SUPPORT"
+  } = service[0] || {};
+
+  // Truck types fallback
+  const {
+    DryVan = "DRY VAN",
+    Reefer = "REEFER",
+    BoxTruck = "BOX TRUCK",
+    Flatbed = "FLATBED",
+    StepDeck = "STEP DECK",
+    PowerOnly = "POWER ONLY"
+  } = truckTypes[0] || {};
 
 
 

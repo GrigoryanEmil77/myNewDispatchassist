@@ -13,38 +13,35 @@ const FootherData = ({ contact = [], service = [], truckTypes = [], navbars = []
   }, []);
 
   const {
-    title = "",
-    phone = "",
-    gmail = "",
-    location = "",
-    picture = "",
-    locationFlorida = "",
+    title = "CONTACT US",
+    phone = "305 765 1565",
+    gmail = "dispatchassistinc@gmail.com",
+    location =  "LOCATION MIAMI FLORIDA",
+    picture = "/logo ......assist.png",
+    locationFlorida = "https://www.google.com/maps?q=Miami,Florida",
   } = contact[0] || {};
 
-  const {
-    titleServices = "",
-    LoadSearch = "",
-    Booking = "",
-    BrokerSetup = "",
-    Detention = "",
-    Invoicing = "",
-    Factoring = "",
-    Support = "",
-  } = service[0] || {};
+   const {
+    titleServices = "SERVICES WE PROVIDE", LoadSearch = "LOAD SEARCH FTL/LTL", Booking = "RATE NEGOTIATION || & BOOKING", BrokerSetup = "BROKER SETUP", Detention = "DETENTION || LAYOVER TONU",
+    Invoicing = "INVOICING", Factoring = "FACTORING & INSURANCE || ASSISTANCE", Support = "24/7 SUPPORT",
 
+  } = service[0] || {};
   const {
-    DryVan = "",
-    Reefer = "",
-    BoxTruck = "",
-    Flatbed = "",
-    StepDeck = "",
-    PowerOnly = "",
+    DryVan = "Dry Van",
+    Reefer = "Reefer",
+    BoxTruck = "Box Truck",
+    Flatbed = "Flatbed",
+    StepDeck = "Step Deck",
+    PowerOnly = "Power only",
   } = truckTypes[0] || {};
 
-  const { followtitle = "", facelink = "", instagramlink = "", linkedlink = "" } =
+  const { followtitle = "FOLLOW US", 
+    facelink = "https://m.facebook.com/profile.php?id=100095562608872&mibextid=LQQJ4d", 
+    instagramlink = "https://www.instagram.com/dispatch_assist/", 
+    linkedlink = "https://www.linkedin.com/company/dispatch-assist/" } =
     follow[0] || {};
 
-  const { trucktypes = "" } = navbars[0] || {};
+  const { trucktypes = "Truck Types" } = navbars[0] || {};
 
    return (
     <footer className="text-white mt-7 pb-6 w-100 elements">

@@ -13,21 +13,21 @@ const CustomerData = ({ customer = [] }) => {
     AOS.init({ once: true, duration: 1200 });
   }, []);
 
-  if (customer.length === 0) return null;
-
+ const data = customer.length ? truckstop[0] : {};
+ 
   const {
-    titlefirst = "",
-    titlesecond = "",
-    customer1name = "",
-    customer2name = "",
-    customer3name = "",
-    customer1text = "",
-    customer2text = "",
-    customer3text = "",
-    customer1picture = "",
-    customer2picture = "",
-    customer3picture = "",
-  } = customer[0] || {};
+    titlefirst = "CUSTOMER",
+    titlesecond = "REVIEWS",
+    customer1name = "Darrell Johnson",
+    customer2name = "Paula Feaster",
+    customer3name = "Victoria Oguagha",
+    customer1text = "I just wanted to share a quick note and let you guys know that you are doing a really good job. I'm glad I decided to work with you. It's really great how easy your dispatch service is. I never have any problems at all. Keep up the great work!dispatch service is. I never have any problems at all. Keep up the great work!",
+    customer2text = "After just one month as a client, I was completely impressed by the speed of communication and the new level of rate negotiations. The team is constantly open to my feedback and not only listens to what I have to say, but also expands the capabilities of my company.",
+    customer3text = "Working with Dispatch Assist is a real pleasure. We were  impressed with such attention to detail, communication skills and professional approach to our deadlines and the company. They were very helpful with our shipping and always went the extra mile for us when it came to the final stages of loading. We highly recommend working with them!",
+    customer1picture = "/IMG_20240707_194308.jpg",
+    customer2picture = "/IMG_20240707_193014.jpg",
+    customer3picture = "/IMG_20240707_194308.jpg",
+  } =customer.length >0 ? customer[0] : {};
 
   const reviews = [
     { name: customer1name, text: customer1text, picture: customer1picture },

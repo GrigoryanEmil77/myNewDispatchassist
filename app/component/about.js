@@ -21,16 +21,25 @@ const AboutData = ({ abouts = [] }) => {
     AOS.init({ once: true, duration: 1200 });
   }, []);
 
-  useEffect(() => {
-    if (!abouts.length) return;
+  // useEffect(() => {
+  //   if (!abouts.length) return;
 
-    const aboutData = abouts[0];
-    setNumber({
-      carriersnumber: +aboutData.carriersnumber || 0,
-      brokersnumber: +aboutData.brokersnumber || 0,
-      loadsnumber: +aboutData.loadsnumber || 0,
-    });
-  }, [abouts]);
+  //   const aboutData = abouts[0];
+  //   setNumber({
+  //     carriersnumber: +aboutData.carriersnumber || 0,
+  //     brokersnumber: +aboutData.brokersnumber || 0,
+  //     loadsnumber: +aboutData.loadsnumber || 0,
+  //   });
+  // }, [abouts]);
+  useEffect(() => {
+  const aboutData = abouts.length ? abouts[0] : {};
+
+  setNumber({
+    carriersnumber: +aboutData.carriersnumber || 1000,
+    brokersnumber: +aboutData.brokersnumber || 500,
+    loadsnumber: +aboutData.loadsnumber || 1000,
+  });
+}, [abouts]);
 
   const animateCounter = (element, target) => {
     let count = 0;
@@ -49,34 +58,56 @@ const AboutData = ({ abouts = [] }) => {
     updateCount();
   };
 
+  // useEffect(() => {
+  //   if (hasAnimated.current) return;
+  //   if (!number.carriersnumber && !number.brokersnumber && !number.loadsnumber) return;
+
+  //   const observer = new IntersectionObserver((entries, obs) => {
+  //     entries.forEach(entry => {
+  //       if (entry.isIntersecting) {
+  //         const el = entry.target;
+  //         const target = parseInt(el.getAttribute("data-target"), 10);
+  //         animateCounter(el, target);
+  //         obs.unobserve(el);
+  //       }
+  //     });
+  //   }, { threshold: 0.1 });
+
+  //   countersRef.current.forEach(el => el && observer.observe(el));
+  //   hasAnimated.current = true;
+
+  //   return () => observer.disconnect();
+  // }, [number]);
   useEffect(() => {
-    if (hasAnimated.current) return;
-    if (!number.carriersnumber && !number.brokersnumber && !number.loadsnumber) return;
+  if (!countersRef.current.length) return;
 
-    const observer = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const el = entry.target;
-          const target = parseInt(el.getAttribute("data-target"), 10);
-          animateCounter(el, target);
-          obs.unobserve(el);
-        }
-      });
-    }, { threshold: 0.1 });
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseInt(el.getAttribute("data-target"), 10);
 
-    countersRef.current.forEach(el => el && observer.observe(el));
-    hasAnimated.current = true;
+        animateCounter(el, target);
 
-    return () => observer.disconnect();
-  }, [number]);
+        obs.unobserve(el); 
+      }
+    });
+  }, { threshold: 0.4 });
+
+  countersRef.current.forEach((el) => {
+    if (el) observer.observe(el);
+  });
+
+  return () => observer.disconnect();
+}, []);
 
   const {
-    titlefirst = "",
-    titlesecond = "",
-    text = "",
-    carrierstext = "",
-    brokerstext = "",
-    loadstext = "",
+    titlefirst = "ABOUT",
+    titlesecond = "US",
+    text = "Dispatch Assist is a platform for truck drivers and companies! With our 24/7 service, we are clearly  committed to supporting owner-operators and businesses of all sizes. We focus on finding the best freight and possible high rates which will maximize earnings, especially in such a challenging industry. Plus, by taking care of paperwork and broker communications, we allow clients to focus on growing their business. Our emphasis on building long-term partnerships shows our true care about the success of our clients.",
+    carrierstext = "Carriers",
+    brokerstext = "Brokers",
+    loadstext = "Loads Weekly",
   } = abouts[0] || {};
 
   return (
@@ -99,13 +130,20 @@ const AboutData = ({ abouts = [] }) => {
           <div key={index} className="col elements m mt-5">
             <div className="style_moving_info_center__yTejj" data-aos="fade-up">
               <div>
-                <span
+                {/* <span
                   className="style_moving_info_number__vI2ou"
                   data-target={item.value}
                   ref={el => (countersRef.current[index] = el)}
                 >
                   {item.value}
-                </span>
+                </span> */}
+                <span
+  className="style_moving_info_number__vI2ou"
+  data-target={item.value}
+  ref={el => (countersRef.current[index] = el)}
+>
+  0
+</span>
               </div>
               <h4 className="style_moving_info_reason__IccwQ">{item.label}</h4>
             </div>

@@ -28,16 +28,16 @@ const ServicesData =({ service = []}) => {
 
   
   const {
-    titlefirst = "", titlesecond = "",
-    LoadSearch = "", Booking = "", BrokerSetup = "", Detention = "",
-    Invoicing = "", Factoring = "", Support = "",
-    picture1 = "", picture2 = "", picture3 = "", picture4 = "",
-    picture5 = "", picture6 = "", picture7 = ""
+    titlefirst = "SERVICES", titlesecond = "WE PROVIDE",
+    LoadSearch = "LOAD SEARCH FTL/LTL", Booking = "RATE NEGOTIATION || & BOOKING", BrokerSetup = "BROKER SETUP", Detention = "DETENTION || LAYOVER TONU",
+    Invoicing = "INVOICING", Factoring = "FACTORING & INSURANCE || ASSISTANCE", Support = "24/7 SUPPORT",
+    picture1 = "/Img2-1.jpg", picture2 = "/Img2-2.jpg", picture3 = "/Img2-3.jpg", picture4 = "/Img2-4.jpg",
+    picture5 = "/Img2-5.jpg", picture6 = "/Img2-6.jpg", picture7 = "/Img2-7.jpg"
   } = service[0] || {};
 
   const serviceList = [
     { id: "LOAD SEARCH FTL/LTL", title: LoadSearch, img: picture1 },
-    { id: "RATE NEGOTIATION & BOOKING", title: Booking, img: picture2, split: true },
+    { id: "RATE NEGOTIATION || & BOOKING", title: Booking, img: picture2, split: true },
     { id: "BROKER SETUP", title: BrokerSetup, img: picture3 },
     { id: "DETENTION LAYOVER TONU", title: Detention, img: picture4, split: true },
     { id: "INVOICING", title: Invoicing, img: picture5 },

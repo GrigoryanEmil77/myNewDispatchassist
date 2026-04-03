@@ -54,12 +54,12 @@ useEffect(() => {
 
 
   const {
-    titlesmall = "", titlesmall1 = "", titlesmall2 = "", titlesmall3 = "",
-    titlelarge = "", text = ""
+    titlesmall = "EMPOWER", titlesmall1 = "your", titlesmall2 = "LOGISTIC BUSINESS", titlesmall3 = "with",
+    titlelarge = "DISPATCH ASSIST", text = "Dispatch Assist is a choice for owner-operators and trucking companies looking to enhance their operations! With a dedicated team of dispatchers and logistics specialists, we are focused to keep drivers on the road while maximizing profit margins. We are committed to studying market trends and booking top-paying loads to stay competitive. Plus, our emphasis on excellent communication ensures that clients receive the quality care that they deserve."
   } = home.length > 0 ? home[0] : {};
 
   const {
-    videodispatch = "", videobackground = ""
+    videodispatch = "/Snapinsta.app_video_D94D4C9A6B46F9CF0E58994CDF590698_video_dashinit.mp4", videobackground =  "/24255-341474048_tiny.mp4", 
   } = video.length > 0 ? video[0] : {};
 
   return (

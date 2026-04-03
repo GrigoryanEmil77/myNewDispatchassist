@@ -13,19 +13,19 @@ const Faq = ({questionsData = []}) => {
   }, []);
 
   const {
-    titlefirst = "",
-    titlesecond = "",
-    questions1 = "",
-    questions2 = "",
-    questions3 = "",
-    questions4 = "",
-    questions5 = "",
-    answer1 = "",
-    answer2 = "",
-    answer3 = "",
-    answer4 = "",
-    answer5 = "",
-  } = questionsData[0];
+    titlefirst = "FREQUENTLY ASKED",
+    titlesecond = "QUESTIONS",
+    questions1 = "How long does the setup process take with Dispatch Assist?",
+    questions2 = "How much is the service fee?",
+    questions3 = "Is there any obligation or commitment involved?",
+    questions4 = "Can I decline the load?",
+    questions5 = "Other questions?",
+    answer1 = " The setup with Dispatch Assist usually takes about 24 hours, as long as all necessary documents are submitted in advance. This quick turnaround can help you get started with our services without any delay.",                  
+    answer2 = " The service fee from Dispatch Assist costs 7%, maximum $300, plus discounts and bonuses may apply. For more information or to discuss your individual needs, it is best to contact an onboarding specialist.",
+    answer3 = "Absolutely not! There are no long-term or short-term commitments, no minimum load requirements, and no obligations whatsoever.",
+    answer4 = " Absolutely! You have the freedom to decline as many loads as you wish, with no minimum fees or obligations.",
+    answer5 = " Feel free to contact<br>Call Carrier Services at 305 765 1565",
+  } = questionsData[0]  || {};
 
   const faqs = [
     { id: "faq1", question: questions1, answer: answer1 },

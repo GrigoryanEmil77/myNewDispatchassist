@@ -34,9 +34,18 @@ const TruckType = ({ truckTypes = [] }) => {
     }, [aosInitialized]);
   
    
-      const { titleTruck="", DryVan="",Reefer="", BoxTruck="",Flatbed="", StepDeck="",PowerOnly="",DryVantext="",
-      DryVanpicture="",Reeferpicture="", BoxTruckpicture="",Flatbedpicture="", StepDeckpicture="",PowerOnlypicture="",
-             Reefertext="",BoxTrucktext="",Flatbedtext="",StepDecktext="",PowerOnlytext="",}=
+      const { titleTruck="TYPES OF TRUCKS WE ARE SPECIALIZED IN", DryVan="DRY VAN",Reefer="REEFER", 
+        BoxTruck="BOX TRUCK",Flatbed="FLATBED", StepDeck="STEP DECK",PowerOnly="POWER ONLY",
+      DryVanpicture="/Img1-1.jpg",Reeferpicture="/Img1-2.jpg", BoxTruckpicture="/Img1-3.jpg",Flatbedpicture="/Img1-4.jpg",
+       StepDeckpicture="/Img1-5.jpg",PowerOnlypicture="/6.png",
+          
+              DryVantext="Dispatch Assist enables you to tailor your business operations by your preferences in the selecting loads that suit your schedule. We offer round-the-clock support and don't require any contracts, ensuring the flexibility necessary for your business needs.",
+               Reefertext="With Dispatch Assist you can say goodbye to the hassle of finding loading ports for profitable  refrigerated cargo. We are partnering with shippers and brokers to offer premier trucking services.This allows you to prioritize driving tasks over logistics management.",
+              BoxTrucktext="Our extensive industry network includes thousands of Box Truck brokers and suppliers with a wide range of capabilities and expertise in the field. Additionally we provide ongoing 24/7 support to ensure that you always have assistance available while on the road",
+             Flatbedtext="Dispatch Assist manages a significant number of  Flatbed, Step Deck and Hot Shot carriers regularly.Our top priority is to ensure that our team is staffed with skilled dispatchers who specialize in the flatbed market.",
+             StepDecktext="We actively develop and maintain business cooperation with various brokerage firms and we are constantly looking for reliable Step Deck drivers for ongoing cooperation.",
+             PowerOnlytext="Our experienced and skilled dispatchers are ready to help you develop a strategy for  receiving and delivering Power Only shipments. Focus on the road while we plan your trip.This enables you to enhance your overall focus and efficiency on the road."
+             ,}=
       truckTypes.length > 0 ? truckTypes[0] : {};
     
 
