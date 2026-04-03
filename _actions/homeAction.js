@@ -1,23 +1,52 @@
+// "use server"; 
+
+// import connectDB from "../config/database";
+// import HomeModel from "../models/homeModel";
+
+
+// export async function getHome() {
+//   try {
+//     console.log(" Connecting to MongoDB...");
+//     await connectDB(); 
+
+   
+//     const rawData = await HomeModel.find();
+    
+
+//     const data = JSON.parse(JSON.stringify(rawData));
+
+//     return { data };
+//   } catch (error) {
+//     console.error("Error fetching data:", error.message);
+//     return { errMsg: error.message };
+//   }
+// }
 "use server"; 
 
 import connectDB from "../config/database";
 import HomeModel from "../models/homeModel";
 
-
 export async function getHome() {
   try {
-    console.log(" Connecting to MongoDB...");
-    await connectDB(); 
+    console.log("Connecting to MongoDB...");
 
-   
-    const rawData = await HomeModel.find();
-    
+    const db = await connectDB();
 
-    const data = JSON.parse(JSON.stringify(rawData));
+    // եթե DB չկա → fallback
+    if (!db) {
+      console.log("MongoDB unavailable, using fallback");
+      return { data: [] };
+    }
 
-    return { data };
+    const rawData = await HomeModel.find().lean();
+
+    return { data: rawData };
+
   } catch (error) {
+
     console.error("Error fetching data:", error.message);
-    return { errMsg: error.message };
+
+    // fallback
+    return { data: [] };
   }
 }

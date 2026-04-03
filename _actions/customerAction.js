@@ -1,19 +1,47 @@
+// "use server";
+
+// import connectDB from "../config/database"; 
+// import CustomerModel from "../models/customerModel";
+
+// export async function getCustomer() {
+//   try {
+//     console.log("Connecting to MongoDB...");
+//     await connectDB();
+
+//     const rawData = await CustomerModel.find();
+//     const data = JSON.parse(JSON.stringify(rawData));
+
+//     return { data };
+//   } catch (error) {
+//     console.error("Error fetching data:", error.message);
+//     return { errMsg: error.message };
+//   }
+// }
 "use server";
 
-import connectDB from "../config/database"; 
+import connectDB from "../config/database";
 import CustomerModel from "../models/customerModel";
 
 export async function getCustomer() {
   try {
     console.log("Connecting to MongoDB...");
-    await connectDB();
 
-    const rawData = await CustomerModel.find();
-    const data = JSON.parse(JSON.stringify(rawData));
+    const db = await connectDB();
 
-    return { data };
+    // եթե DB չկա → fallback
+    if (!db) {
+      console.log("MongoDB unavailable, using fallback");
+      return { data: [] };
+    }
+
+    const rawData = await CustomerModel.find().lean();
+
+    return { data: rawData };
+
   } catch (error) {
     console.error("Error fetching data:", error.message);
-    return { errMsg: error.message };
+
+    // fallback
+    return { data: [] };
   }
 }

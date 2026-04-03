@@ -22,7 +22,6 @@
 
 // export default connectDB;
 
-
 import mongoose from "mongoose";
 
 const MONGO_URI = process.env.MONGODB_URI;
@@ -30,18 +29,21 @@ const MONGO_URI = process.env.MONGODB_URI;
 let isConnected = false;
 
 const connectDB = async () => {
-  if (isConnected) return;
+  if (isConnected) return true;
 
   try {
     await mongoose.connect(MONGO_URI, {
       serverSelectionTimeoutMS: 3000,
-  
+      bufferCommands: false
     });
 
     isConnected = true;
     console.log("MongoDB connected");
+    return true;
+
   } catch (error) {
-    console.error("MongoDB connection error:", error);
+    console.error("MongoDB connection error:", error.message);
+    return false; // fallback օգտագործելու համար
   }
 };
 
