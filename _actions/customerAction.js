@@ -1,47 +1,72 @@
-// "use server";
-
-// import connectDB from "../config/database"; 
-// import CustomerModel from "../models/customerModel";
-
-// export async function getCustomer() {
-//   try {
-//     console.log("Connecting to MongoDB...");
-//     await connectDB();
-
-//     const rawData = await CustomerModel.find();
-//     const data = JSON.parse(JSON.stringify(rawData));
-
-//     return { data };
-//   } catch (error) {
-//     console.error("Error fetching data:", error.message);
-//     return { errMsg: error.message };
-//   }
-// }
 "use server";
 
-import connectDB from "../config/database";
+import connectDB from "../config/database"; 
 import CustomerModel from "../models/customerModel";
 
 export async function getCustomer() {
   try {
     console.log("Connecting to MongoDB...");
+    await connectDB();
 
-    const db = await connectDB();
+    const rawData = await CustomerModel.find();
+    const data = JSON.parse(JSON.stringify(rawData));
 
-    // եթե DB չկա → fallback
-    if (!db) {
-      console.log("MongoDB unavailable, using fallback");
-      return { data: [] };
-    }
-
-    const rawData = await CustomerModel.find().lean();
-
-    return { data: rawData };
-
+    return { data };
   } catch (error) {
     console.error("Error fetching data:", error.message);
-
-    // fallback
-    return { data: [] };
+    return { errMsg: error.message };
   }
 }
+// "use server";
+
+// import connectDB from "../config/database";
+// import CustomerModel from "../models/customerModel";
+
+// export async function getCustomer() {
+//   try {
+//     console.log("Connecting to MongoDB...");
+
+//     const db = await connectDB();
+
+//     // եթե DB չկա → fallback
+//     if (!db) {
+//       console.log("MongoDB unavailable, using fallback");
+//       return { data: [] };
+//     }
+
+//     const rawData = await CustomerModel.find().lean();
+
+//     return { data: rawData };
+
+//   } catch (error) {
+//     console.error("Error fetching data:", error.message);
+
+//     // fallback
+//     return { data: [] };
+//   }
+// }
+
+// "use server";
+
+// import { unstable_noStore } from "next/cache";
+// import connectDB from "../config/database";
+// import CustomerModel from "../models/customerModel";
+
+// export async function getCustomer() {
+//   unstable_noStore(); 
+
+//   try {
+//     const db = await connectDB();
+
+//     if (!db) {
+//       return { data: [] };
+//     }
+
+//     const rawData = await CustomerModel.find().lean();
+
+//     return { data: rawData };
+//   } catch (error) {
+//     console.error("Error fetching data:", error.message);
+//     return { data: [] };
+//   }
+// }

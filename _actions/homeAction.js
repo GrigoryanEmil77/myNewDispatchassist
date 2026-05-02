@@ -1,52 +1,54 @@
-// "use server"; 
-
-// import connectDB from "../config/database";
-// import HomeModel from "../models/homeModel";
-
-
-// export async function getHome() {
-//   try {
-//     console.log(" Connecting to MongoDB...");
-//     await connectDB(); 
-
-   
-//     const rawData = await HomeModel.find();
-    
-
-//     const data = JSON.parse(JSON.stringify(rawData));
-
-//     return { data };
-//   } catch (error) {
-//     console.error("Error fetching data:", error.message);
-//     return { errMsg: error.message };
-//   }
-// }
 "use server"; 
 
 import connectDB from "../config/database";
 import HomeModel from "../models/homeModel";
 
+
 export async function getHome() {
   try {
-    console.log("Connecting to MongoDB...");
+    console.log(" Connecting to MongoDB...");
+    await connectDB(); 
 
-    const db = await connectDB();
+   
+    const rawData = await HomeModel.find();
+    
 
-    // եթե DB չկա → fallback
-    if (!db) {
-      console.log("MongoDB unavailable, using fallback");
-      return { data: [] };
-    }
+    const data = JSON.parse(JSON.stringify(rawData));
 
-    const rawData = await HomeModel.find().lean();
-
-    return { data: rawData };
-
+    return { data };
   } catch (error) {
-
     console.error("Error fetching data:", error.message);
-
-    // fallback
-    return { data: [] };
+    return { errMsg: error.message };
   }
 }
+
+// "use server"; 
+// import { unstable_noStore } from "next/cache";
+// import connectDB from "../config/database";
+// import HomeModel from "../models/homeModel";
+
+// export async function getHome() {
+//     unstable_noStore(); 
+//   try {
+//     console.log("Connecting to MongoDB...");
+
+//     const db = await connectDB();
+
+//     // եթե DB չկա → fallback
+//     if (!db) {
+//       console.log("MongoDB unavailable, using fallback");
+//       return { data: [] };
+//     }
+
+//     const rawData = await HomeModel.find().lean();
+
+//     return { data: rawData };
+
+//   } catch (error) {
+
+//     console.error("Error fetching data:", error.message);
+
+//     // fallback
+//     return { data: [] };
+//   }
+// }

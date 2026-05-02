@@ -13,7 +13,6 @@ const CustomerData = ({ customer = [] }) => {
     AOS.init({ once: true, duration: 1200 });
   }, []);
 
-  // if (customer.length === 0) return null;
 
   const {
     titlefirst = "CUSTOMER",
@@ -26,7 +25,7 @@ const CustomerData = ({ customer = [] }) => {
     customer3text = "Working with Dispatch Assist is a real pleasure. We were  impressed with such attention to detail, communication skills and professional approach to our deadlines and the company. They were very helpful with our shipping and always went the extra mile for us when it came to the final stages of loading. We highly recommend working with them!",
     customer1picture = "/IMG_20240707_194308.jpg",
     customer2picture = "/IMG_20240707_193014.jpg",
-    customer3picture = "/IMG_20240707_194308.jpg",
+    customer3picture = "/IMG_20240707_193102.jpg",
   } =customer.length >0 ? customer[0] : {};
 
   const reviews = [
