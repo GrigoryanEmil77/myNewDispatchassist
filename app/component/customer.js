@@ -13,7 +13,7 @@ const CustomerData = ({ customer = [] }) => {
     AOS.init({ once: true, duration: 1200 });
   }, []);
 
-  if (customer.length === 0) return null;
+  // if (customer.length === 0) return null;
 
   const {
     titlefirst = "CUSTOMER",
