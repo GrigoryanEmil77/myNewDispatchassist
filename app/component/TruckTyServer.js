@@ -1,4 +1,4 @@
-
+export const dynamic = "force-dynamic";
 
 import { getTrucktype } from '../../_actions/truckAction';
 import TruckType from './trucktype';

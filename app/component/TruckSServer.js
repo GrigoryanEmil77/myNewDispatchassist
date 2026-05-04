@@ -1,4 +1,4 @@
-
+export const dynamic = "force-dynamic";
 
 import { getTruckStop } from '../../_actions/truckStopAction';
 import TruckStopClient from './truckstop'

@@ -1,7 +1,6 @@
 
 
-"use server";
-
+export const dynamic = "force-dynamic";
 import { getQuestions } from "../../_actions/faqsAction";
 import Faq from './faqs';
 

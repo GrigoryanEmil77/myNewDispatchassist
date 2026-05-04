@@ -1,10 +1,11 @@
 "use server";
-
+import { unstable_noStore } from "next/cache"; 
 import connectDB from "../config/database";
 import VideoTypesAllModel from "../models/videoModel";
 
 export async function getVideo() {
   try {
+      unstable_noStore();
     console.log(" Connecting to MongoDB...");
     await connectDB(); 
 

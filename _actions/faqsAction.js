@@ -1,10 +1,11 @@
 "use server";
-
+import { unstable_noStore } from "next/cache"; 
 import connectDB from "../config/database";
 import QuestionsModel from "../models/faqsModel";
 
 export async function getQuestions() {
   try {
+      unstable_noStore();
     console.log("Connecting to MongoDB...");
     await connectDB();
 

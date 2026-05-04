@@ -1,5 +1,5 @@
 
-
+export const dynamic = "force-dynamic";
 import { getHome } from '../../_actions/homeAction';
 import { getVideo } from '../../_actions/videoAction';
 
