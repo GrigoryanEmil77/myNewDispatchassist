@@ -13,7 +13,7 @@ const FootherData = ({ contact = [], service = [], truckTypes = [], navbars = []
   }, []);
 
 
-  const { title = "CONTACT US", phone = "", gmail = "dispatchassistinc@gmail.com", location = "LOCATION MIAMI FLORIDA",
+  const { title = "CONTACT US", phone = "305 765 1565", gmail = "dispatchassistinc@gmail.com", location = "LOCATION MIAMI FLORIDA",
      picture = "/logo ......assist.png", locationFlorida = "https://www.google.com/maps?q=Miami,Florida" } =
     contact[0] || {};
    const {
@@ -23,12 +23,12 @@ const FootherData = ({ contact = [], service = [], truckTypes = [], navbars = []
   } = service[0] || {};
 
   const {
-    DryVan = "Dry Van",
-    Reefer = "Reefer",
-    BoxTruck = "Box Truck",
-    Flatbed = "Flatbed",
-    StepDeck = "Step Deck",
-    PowerOnly = "Power only",
+    DryVan = "DRY VAN",
+    Reefer = "REEFER",
+    BoxTruck = "BOX TRUCK",
+    Flatbed = "FLATBED",
+    StepDeck = "STEP DECK",
+    PowerOnly = "POWER ONLY",
   } = truckTypes[0] || {};
 
   const { followtitle = "FOLLOW US", 
