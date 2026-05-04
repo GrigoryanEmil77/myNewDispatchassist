@@ -17,26 +17,3 @@ export async function getTruckStop() {
     return { errMsg: error.message };
   }
 }
-
-// "use server";
-// import { unstable_noStore } from "next/cache";
-// import connectDB from "../config/database";
-// import TruckTypesStopModel from "../models/truckStopModel";
-
-// export async function getTruckStop() {
-//     unstable_noStore(); 
-//   try {
-//     console.log("Connecting to MongoDB...");
-//     const db = await connectDB();
-//     if (!db) {
-//       console.log("MongoDB unavailable, using fallback");
-//       return { data: [] }; // fallback
-//     }
-
-//     const rawData = await TruckTypesStopModel.find().lean();
-//     return { data: rawData };
-//   } catch (error) {
-//     console.error("Error fetching data:", error.message);
-//     return { data: [] }; // fallback
-//   }
-// }

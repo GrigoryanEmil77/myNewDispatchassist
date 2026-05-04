@@ -12,20 +12,16 @@ const FootherData = ({ contact = [], service = [], truckTypes = [], navbars = []
     return () => AOS.refreshHard();
   }, []);
 
-  const {
-    title = "CONTACT US",
-    phone = "305 765 1565",
-    gmail = "dispatchassistinc@gmail.com",
-    location =  "LOCATION MIAMI FLORIDA",
-    picture = "/logo ......assist.png",
-    locationFlorida = "https://www.google.com/maps?q=Miami,Florida",
-  } = contact[0] || {};
 
+  const { title = "CONTACT US", phone = "", gmail = "dispatchassistinc@gmail.com", location = "LOCATION MIAMI FLORIDA",
+     picture = "/logo ......assist.png", locationFlorida = "https://www.google.com/maps?q=Miami,Florida" } =
+    contact[0] || {};
    const {
     titleServices = "SERVICES WE PROVIDE", LoadSearch = "LOAD SEARCH FTL/LTL", Booking = "RATE NEGOTIATION || & BOOKING", BrokerSetup = "BROKER SETUP", Detention = "DETENTION || LAYOVER TONU",
     Invoicing = "INVOICING", Factoring = "FACTORING & INSURANCE || ASSISTANCE", Support = "24/7 SUPPORT",
 
   } = service[0] || {};
+
   const {
     DryVan = "Dry Van",
     Reefer = "Reefer",

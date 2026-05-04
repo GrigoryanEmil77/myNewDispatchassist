@@ -22,29 +22,57 @@
 
 // export default connectDB;
 
+// import mongoose from "mongoose";
+
+// const MONGO_URI = process.env.MONGODB_URI;
+
+// let isConnected = false;
+
+// const connectDB = async () => {
+//   if (isConnected) return true;
+
+//   try {
+//     await mongoose.connect(MONGO_URI, {
+//       serverSelectionTimeoutMS: 3000,
+//       bufferCommands: false
+//     });
+
+//     isConnected = true;
+//     console.log("MongoDB connected");
+//     return true;
+
+//   } catch (error) {
+//     console.error("MongoDB connection error:", error.message);
+//     return false; // fallback օգտագործելու համար
+//   }
+// };
+
+// export default connectDB;
 import mongoose from "mongoose";
 
-const MONGO_URI = process.env.MONGODB_URI;
+const MONGODB_URI = process.env.MONGODB_URI;
 
-let isConnected = false;
+if (!MONGODB_URI) {
+  throw new Error("Please define MONGODB_URI in .env");
+}
 
-const connectDB = async () => {
-  if (isConnected) return true;
+let cached = global.mongoose;
 
-  try {
-    await mongoose.connect(MONGO_URI, {
-      serverSelectionTimeoutMS: 3000,
-      bufferCommands: false
-    });
+if (!cached) {
+  cached = global.mongoose = { conn: null, promise: null };
+}
 
-    isConnected = true;
-    console.log("MongoDB connected");
-    return true;
-
-  } catch (error) {
-    console.error("MongoDB connection error:", error.message);
-    return false; // fallback օգտագործելու համար
+export default async function connectDB() {
+  if (cached.conn) {
+    return cached.conn;
   }
-};
 
-export default connectDB;
+  if (!cached.promise) {
+    cached.promise = mongoose.connect(MONGODB_URI).then((mongoose) => {
+      return mongoose;
+    });
+  }
+
+  cached.conn = await cached.promise;
+  return cached.conn;
+}

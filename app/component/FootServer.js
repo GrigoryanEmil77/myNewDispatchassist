@@ -1,6 +1,5 @@
 
-
-"use server";
+export const dynamic = "force-dynamic";
 import FootherData from "./foother";
 import { getContact } from "../../_actions/footherAction";
 import { getServicesType } from "../../_actions/servicesAction";
