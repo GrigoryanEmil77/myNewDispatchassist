@@ -22,32 +22,32 @@
 
 // export default connectDB;
 
-// import mongoose from "mongoose";
+import mongoose from "mongoose";
 
-// const MONGO_URI = process.env.MONGODB_URI;
+const MONGO_URI = process.env.MONGODB_URI;
 
-// let isConnected = false;
+let isConnected = false;
 
-// const connectDB = async () => {
-//   if (isConnected) return true;
+const connectDB = async () => {
+  if (isConnected) return true;
 
-//   try {
-//     await mongoose.connect(MONGO_URI, {
-//       serverSelectionTimeoutMS: 3000,
-//       bufferCommands: false
-//     });
+  try {
+    await mongoose.connect(MONGO_URI, {
+      serverSelectionTimeoutMS: 3000,
+      bufferCommands: false
+    });
 
-//     isConnected = true;
-//     console.log("MongoDB connected");
-//     return true;
+    isConnected = true;
+    console.log("MongoDB connected");
+    return true;
 
-//   } catch (error) {
-//     console.error("MongoDB connection error:", error.message);
-//     return false; // fallback օգտագործելու համար
-//   }
-// };
+  } catch (error) {
+    console.error("MongoDB connection error:", error.message);
+    return false; // fallback օգտագործելու համար
+  }
+};
 
-// export default connectDB;
+export default connectDB;
 
 
 
@@ -83,39 +83,39 @@
 //   return cached.conn;
 // }
 
-import mongoose from "mongoose";
+// import mongoose from "mongoose";
 
-const MONGODB_URI = process.env.MONGODB_URI;
+// const MONGODB_URI = process.env.MONGODB_URI;
 
-if (!MONGODB_URI) {
-  throw new Error("Please define MONGODB_URI in .env");
-}
+// if (!MONGODB_URI) {
+//   throw new Error("Please define MONGODB_URI in .env");
+// }
 
-// Use globalThis (Vercel-safe)
-let cached = globalThis.mongoose;
+// // Use globalThis (Vercel-safe)
+// let cached = globalThis.mongoose;
 
-if (!cached) {
-  cached = globalThis.mongoose = { conn: null, promise: null };
-}
+// if (!cached) {
+//   cached = globalThis.mongoose = { conn: null, promise: null };
+// }
 
-async function connectDB() {
-  if (cached.conn) return cached.conn;
+// async function connectDB() {
+//   if (cached.conn) return cached.conn;
 
-  if (!cached.promise) {
-    cached.promise = mongoose.connect(MONGODB_URI, {
-      bufferCommands: false,
-      maxPoolSize: 10,
-    }).then((mongoose) => mongoose.connection);
-  }
+//   if (!cached.promise) {
+//     cached.promise = mongoose.connect(MONGODB_URI, {
+//       bufferCommands: false,
+//       maxPoolSize: 10,
+//     }).then((mongoose) => mongoose.connection);
+//   }
 
-  try {
-    cached.conn = await cached.promise;
-  } catch (err) {
-    cached.promise = null;
-    throw err;
-  }
+//   try {
+//     cached.conn = await cached.promise;
+//   } catch (err) {
+//     cached.promise = null;
+//     throw err;
+//   }
 
-  return cached.conn;
-}
+//   return cached.conn;
+// }
 
-export default connectDB;
+// export default connectDB;
