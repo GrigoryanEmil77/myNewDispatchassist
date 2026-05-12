@@ -1,11 +1,12 @@
 
-export const dynamic = "force-dynamic";
 import FootherData from "./foother";
 import { getContact } from "../../_actions/footherAction";
 import { getServicesType } from "../../_actions/servicesAction";
 import { getTrucktype } from "../../_actions/truckAction";
 import { getNavbarData } from "../../_actions/navbarAction";
 import { getFollow } from "../../_actions/followAction";
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 export default async function FootherServer() {
   const [contactRes, serviceRes, truckTypesRes, navbarsRes, followRes] = await Promise.all([

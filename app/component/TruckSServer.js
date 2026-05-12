@@ -1,7 +1,9 @@
-export const dynamic = "force-dynamic";
 
 import { getTruckStop } from '../../_actions/truckStopAction';
 import TruckStopClient from './truckstop'
+
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 export default async function TruckStopServer() {
   

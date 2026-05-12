@@ -1,13 +1,13 @@
 
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
-export const fetchCache = "force-no-store";
 
 import { headers } from "next/headers";
 import { getNavbarData } from "../../_actions/navbarAction";
 import { getServicesType } from "../../_actions/servicesAction";
 import { getTrucktype } from "../../_actions/truckAction";
 import MyNavbar from "./navbar";
+
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 export default async function NavbarServer() {
   try {

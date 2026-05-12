@@ -1,8 +1,8 @@
-export const dynamic = "force-dynamic";
 
 import { getServicesType } from '../../_actions/servicesAction';
 import ServicesData from './services';
-
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 export default async function ServicesServer() {
   

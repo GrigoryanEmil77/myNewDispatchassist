@@ -1,10 +1,10 @@
 
-export const dynamic = "force-dynamic";
 import { getHome } from '../../_actions/homeAction';
 import { getVideo } from '../../_actions/videoAction';
-
 import HomeData from './home';
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 export default async function HomeServer() {
   
